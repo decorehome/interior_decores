@@ -1,1 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DECORE — Curated Home Décor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --bg-color: #fafafa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-light: #999;
+            --border-color: #e5e5e5;
+            --accent: #8b7355;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Navigation */
+        .top-bar {
+            background: var(--text-primary);
+            color: var(--white);
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--text-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 220px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            z-index: 1001;
+            margin-top: 10px;
+        }
+
+        .dropdown-content a {
+            padding: 15px 20px;
+            display: block;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu > a::after {
+            content: '›';
+            float: right;
+            margin-left: 10px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            min-width: 200px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            margin-left: 1px;
+        }
+
+        .dropdown-submenu:hover .submenu {
+            display: block;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons svg {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-icons svg:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border: 1px solid var(--white);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn:hover {
+            background: var(--white);
+            color: var(--text-primary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        /* Categories Grid */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 40px 30px;
+            color: var(--white);
+        }
+
+        .category-overlay h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .category-overlay span {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--bg-color);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 5px 12px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-price {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .product-price .original {
+            text-decoration: line-through;
+            margin-left: 10px;
+            opacity: 0.6;
+        }
+
+        /* Brands Section */
+        .brands {
+            background: var(--white);
+            padding: 100px 40px;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            text-align: center;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .brand-card:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-5px);
+        }
+
+        .brand-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .brand-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .brand-link {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--text-primary);
+            padding-bottom: 3px;
+        }
+
+        /* About Page */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            letter-spacing: 2px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .mission-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .mission-item h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .mission-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-item h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .contact-item p {
+            font-size: 16px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom-color: var(--text-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--text-primary);
+            color: var(--white);
+            border: none;
+            padding: 16px 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-color);
+            border-top: 1px solid var(--border-color);
+            padding: 80px 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 10px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+        }
+
+        .newsletter-form button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .newsletter-form button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .payment-methods img {
+            height: 30px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .payment-methods img:hover {
+            opacity: 1;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .app-btn {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .app-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .app-btn div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-btn small {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        .app-btn strong {
+            font-size: 14px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 25px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Page transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        Welcome to DECORE — Curated pieces for a home you love
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">DECORE</div>
+            
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="showPage('brands')">Brands</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-submenu">
+                            <a href="#">Zara Home</a>
+                            <div class="submenu">
+                                <a href="#" onclick="filterByBrand('Zara Home')">Decorative Candles</a>
+                                <a href="#" onclick="filterByBrand('Zara Home')">Mirrors</a>
+                                <a href="#" onclick="filterByBrand('Zara Home')">Vases</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-submenu">
+                            <a href="#">H&M Home</a>
+                            <div class="submenu">
+                                <a href="#" onclick="filterByBrand('H&M Home')">Decorative Candles</a>
+                                <a href="#" onclick="filterByBrand('H&M Home')">Mirrors</a>
+                                <a href="#" onclick="filterByBrand('H&M Home')">Vases</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-submenu">
+                            <a href="#">IKEA</a>
+                            <div class="submenu">
+                                <a href="#" onclick="filterByBrand('IKEA')">Decorative Candles</a>
+                                <a href="#" onclick="filterByBrand('IKEA')">Mirrors</a>
+                                <a href="#" onclick="filterByBrand('IKEA')">Vases</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" onclick="filterByCategory('Candles')">Candles</a></li>
+                <li><a href="#" onclick="filterByCategory('Vases')">Vases</a></li>
+                <li><a href="#" onclick="filterByCategory('Mirrors')">Mirrors</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                    <path d="M3 6h18"></path>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Curated pieces for a home you love</h1>
+                <p>Handpicked pieces from your favorite brands</p>
+                <a href="#products" class="btn" onclick="showPage('shop'); return false;">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-title">
+                <h2>Shop by Category</h2>
+                <p>Discover our carefully selected collections</p>
+            </div>
+            <div class="categories">
+                <div class="category-card" onclick="filterByCategory('Candles')">
+                    <img src="https://images.unsplash.com/photo-1602874801006-e26c2c4c7a6c?w=600&q=80" alt="Candles">
+                    <div class="category-overlay">
+                        <h3>Decorative Candles</h3>
+                        <span>Shop Collection →</span>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Vases')">
+                    <img src="https://images.unsplash.com/photo-1578500494198-246f612d5b7b?w=600&q=80" alt="Vases">
+                    <div class="category-overlay">
+                        <h3>Vases</h3>
+                        <span>Shop Collection →</span>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Mirrors')">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Mirrors">
+                    <div class="category-overlay">
+                        <h3>Mirrors</h3>
+                        <span>Shop Collection →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section id="products" style="background: var(--white);">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Best sellers from Zara Home, H&M Home & IKEA</p>
+            </div>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Brands -->
+        <section class="brands">
+            <div class="section-title">
+                <h2>Our Brands</h2>
+                <p>Curated selections from the world's best home décor brands</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <h3>Zara Home</h3>
+                    <p>Sophisticated designs with a contemporary edge. Timeless pieces that bring elegance to any space.</p>
+                    <a href="#" class="brand-link" onclick="filterByBrand('Zara Home'); return false;">Explore Collection</a>
+                </div>
+                <div class="brand-card">
+                    <h3>H&M Home</h3>
+                    <p>Affordable luxury with Scandinavian-inspired aesthetics. Modern designs for everyday living.</p>
+                    <a href="#" class="brand-link" onclick="filterByBrand('H&M Home'); return false;">Explore Collection</a>
+                </div>
+                <div class="brand-card">
+                    <h3>IKEA</h3>
+                    <p>Functional beauty meets democratic design. Quality home essentials that don't compromise on style.</p>
+                    <a href="#" class="brand-link" onclick="filterByBrand('IKEA'); return false;">Explore Collection</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shop Page -->
+    <div id="shop" class="page">
+        <section>
+            <div class="section-title">
+                <h2>All Products</h2>
+                <p>Browse our complete collection</p>
+            </div>
+            <div class="products-grid" id="allProducts">
+                <!-- All products will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="about-hero">
+            <h1>About Us</h1>
+        </div>
+        <div class="about-content">
+            <h2>Our Story</h2>
+            <p>DECORE was born from a simple belief: that everyone deserves a beautiful home. We curate the finest home décor pieces from the world's most beloved brands, bringing you a carefully selected collection of candles, vases, and mirrors that transform houses into homes.</p>
+            <p>Our mission is to make exceptional design accessible. We partner with Zara Home, H&M Home, and IKEA to offer you the best of contemporary home décor at prices that don't compromise your budget.</p>
+            
+            <div class="mission-grid">
+                <div class="mission-item">
+                    <h3>Curated Quality</h3>
+                    <p>Every piece in our collection is handpicked for its design excellence and craftsmanship.</p>
+                </div>
+                <div class="mission-item">
+                    <h3>Sustainable Choices</h3>
+                    <p>We prioritize brands that commit to sustainable practices and ethical production.</p>
+                </div>
+                <div class="mission-item">
+                    <h3>Affordable Luxury</h3>
+                    <p>Beautiful design should be accessible. We bring you premium style at fair prices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4>Visit Us</h4>
+                        <p>123 Design Street<br>Design District, DD 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Email Us</h4>
+                        <p>hello@decore.com<br>support@decore.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Call Us</h4>
+                        <p>+1 (555) 123-4567<br>Mon - Fri: 10:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Working Hours</h4>
+                        <p>Monday - Friday: 10:00 AM - 6:00 PM<br>
+                        Saturday: 11:00 AM - 4:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" required placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea required placeholder="Tell us more..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('about')">Our Mission</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Working Hours</h4>
+                <ul>
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-secondary);">
+                        <span>Monday - Friday</span>
+                        <span>10:00 AM - 6:00 PM</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; color: var(--text-secondary);">
+                        <span>Saturday</span>
+                        <span>11:00 AM - 4:00 PM</span>
+                    </li>
+                    <li style="display: flex; justify-content: space-between; font-size: 14px; color: var(--text-secondary);">
+                        <span>Sunday</span>
+                        <span>Closed</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>News & Updates</h4>
+                <p>Discover new pieces, collections and inspiration for your home.</p>
+                <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/100px-Visa_Inc._logo.svg.png" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/100px-Mastercard-logo.svg.png" alt="Mastercard">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo_%282018%29.svg/100px-American_Express_logo_%282018%29.svg.png" alt="Amex">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/100px-PayPal.svg.png" alt="PayPal">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Discover_card_logo.svg/100px-Discover_card_logo.svg.png" alt="Discover">
+            </div>
+            <div class="app-buttons">
+                <a href="#" class="app-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                    <div>
+                        <small>Download on the</small>
+                        <strong>App Store</strong>
+                    </div>
+                </a>
+                <a href="#" class="app-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L15.39,10.3L6.05,4.88V2.66Z"/>
+                    </svg>
+                    <div>
+                        <small>Get it on</small>
+                        <strong>Google Play</strong>
+                    </div>
+                </a>
+            </div>
+            <div class="copyright">
+                © 2024 DECORE. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            // Zara Home - Candles
+            { id: 1, name: "Scented Candle in Glass", brand: "Zara Home", category: "Candles", price: 29.90, original: null, image: "https://images.unsplash.com/photo-1602874801006-e26c2c4c7a6c?w=500&q=80" },
+            { id: 2, name: "Textured Candle Set", brand: "Zara Home", category: "Candles", price: 35.90, original: 45.90, image: "https://images.unsplash.com/photo-1608425246442-9f8b24b21e37?w=500&q=80" },
+            { id: 3, name: "Decorative Pillar Candle", brand: "Zara Home", category: "Candles", price: 24.90, original: null, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&q=80" },
+            
+            // Zara Home - Vases
+            { id: 4, name: "Ceramic Textured Vase", brand: "Zara Home", category: "Vases", price: 49.90, original: null, image: "https://images.unsplash.com/photo-1578500494198-246f612d5b7b?w=500&q=80" },
+            { id: 5, name: "Glass Bottle Vase", brand: "Zara Home", category: "Vases", price: 39.90, original: null, image: "https://images.unsplash.com/photo-1580480055273-22830eb90468?w=500&q=80" },
+            { id: 6, name: "Terracotta Planter", brand: "Zara Home", category: "Vases", price: 34.90, original: 44.90, image: "https://images.unsplash.com/photo-1594056440276-2499b8bea35c?w=500&q=80" },
+            
+            // Zara Home - Mirrors
+            { id: 7, name: "Round Wall Mirror", brand: "Zara Home", category: "Mirrors", price: 89.90, original: null, image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80" },
+            { id: 8, name: "Decorative Frame Mirror", brand: "Zara Home", category: "Mirrors", price: 129.90, original: null, image: "https://images.unsplash.com/photo-1617101600043-3c5f2a1a4009?w=500&q=80" },
+            
+            // H&M Home - Candles
+            { id: 9, name: "Scented Candle in Jar", brand: "H&M Home", category: "Candles", price: 19.99, original: null, image: "https://images.unsplash.com/photo-1608425246442-9f8b24b21e37?w=500&q=80" },
+            { id: 10, name: "Block Candle Set", brand: "H&M Home", category: "Candles", price: 24.99, original: null, image: "https://images.unsplash.com/photo-1609204825383-1650fd811a46?w=500&q=80" },
+            { id: 11, name: "Spiral Candle", brand: "H&M Home", category: "Candles", price: 14.99, original: 19.99, image: "https://images.unsplash.com/photo-1636718282285-52a7a80a482a?w=500&q=80" },
+            
+            // H&M Home - Vases
+            { id: 12, name: "Ribbed Glass Vase", brand: "H&M Home", category: "Vases", price: 29.99, original: null, image: "https://images.unsplash.com/photo-1580480055273-22830eb90468?w=500&q=80" },
+            { id: 13, name: "Ceramic Bud Vase", brand: "H&M Home", category: "Vases", price: 17.99, original: null, image: "https://images.unsplash.com/photo-1612196808214-b8e1d611a6b1?w=500&q=80" },
+            { id: 14, name: "Stoneware Vase", brand: "H&M Home", category: "Vases", price: 34.99, original: null, image: "https://images.unsplash.com/photo-1595907710692-1643eb450571?w=500&q=80" },
+            
+            // H&M Home - Mirrors
+            { id: 15, name: "Round Mirror with Frame", brand: "H&M Home", category: "Mirrors", price: 59.99, original: null, image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80" },
+            { id: 16, name: "Wall Mirror Set", brand: "H&M Home", category: "Mirrors", price: 79.99, original: 99.99, image: "https://images.unsplash.com/photo-1617101600043-3c5f2a1a4009?w=500&q=80" },
+            
+            // IKEA - Candles
+            { id: 17, name: "DUFTMASSA Scented Candle", brand: "IKEA", category: "Candles", price: 9.99, original: null, image: "https://images.unsplash.com/photo-1602874801006-e26c2c4c7a6c?w=500&q=80" },
+            { id: 18, name: "FENOMEN Unscented Candle", brand: "IKEA", category: "Candles", price: 7.99, original: null, image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=500&q=80" },
+            { id: 19, name: "LJUV Scented Candle", brand: "IKEA", category: "Candles", price: 12.99, original: null, image: "https://images.unsplash.com/photo-1608425246442-9f8b24b21e37?w=500&q=80" },
+            
+            // IKEA - Vases
+            { id: 20, name: "FINSUM Glass Vase", brand: "IKEA", category: "Vases", price: 14.99, original: null, image: "https://images.unsplash.com/photo-1578500494198-246f612d5b7b?w=500&q=80" },
+            { id: 21, name: "SOCKERBIT Planter", brand: "IKEA", category: "Vases", price: 9.99, original: null, image: "https://images.unsplash.com/photo-1594056440276-2499b8bea35c?w=500&q=80" },
+            { id: 22, name: "OFTAST Glass Bowl", brand: "IKEA", category: "Vases", price: 4.99, original: 7.99, image: "https://images.unsplash.com/photo-1580480055273-22830eb90468?w=500&q=80" },
+            
+            // IKEA - Mirrors
+            { id: 23, name: "STOCKHOLM Mirror", brand: "IKEA", category: "Mirrors", price: 149.00, original: null, image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&q=80" },
+            { id: 24, name: "NISSEDAL Mirror", brand: "IKEA", category: "Mirrors", price: 79.99, original: null, image: "https://images.unsplash.com/photo-1617101600043-3c5f2a1a4009?w=500&q=80" },
+            { id: 25, name: "LINDBYN Mirror", brand: "IKEA", category: "Mirrors", price: 59.99, original: 79.99, image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500&q=80" }
+        ];
+
+        // Render Products
+        function renderProducts(containerId, productsToRender) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = productsToRender.map(product => `
+                <div class="product-card" onclick="showProductDetail(${product.id})">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        ${product.original ? '<span class="product-badge">Sale</span>' : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">${product.brand}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">
+                            $${product.price.toFixed(2)}
+                            ${product.original ? `<span class="original">$${product.original.toFixed(2)}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts('featuredProducts', products.slice(0, 8));
+            renderProducts('allProducts', products);
+        });
+
+        // Page Navigation
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Filter Functions
+        function filterByCategory(category) {
+            const filtered = products.filter(p => p.category === category);
+            renderProducts('allProducts', filtered);
+            showPage('shop');
+        }
+
+        function filterByBrand(brand) {
+            const filtered = products.filter(p => p.brand === brand);
+            renderProducts('allProducts', filtered);
+            showPage('shop');
+        }
+
+        // Product Detail (simple alert for demo)
+        function showProductDetail(id) {
+            const product = products.find(p => p.id === id);
+            alert(`${product.name}\n${product.brand}\n$${product.price.toFixed(2)}\n\nIn a full implementation, this would open a product detail page.`);
+        }
+
+        // Form Handlers
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            e.target.reset();
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            e.target.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
