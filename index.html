@@ -1359,7 +1359,7 @@
     <p class="hero-sub">Handpicked pieces from your favorite brands.</p>
     <a class="hero-cta" href="#idea">Discover DECORE</a>
   </div>
-  <div class="hero-foot"><span>DECORE</span><span>SCROLL TO EXPLORE ↓</span></div>
+  <div class="hero-foot"><span>DECORE / 01</span><span>SCROLL TO EXPLORE ↓</span></div>
 </section>
 
 <section class="idea section" id="idea">
@@ -1531,10 +1531,16 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();search
 renderProducts();
 
 </script>
-</body></html>
 
-<style id="decore-remove-editorial-numbering-final">
-/* Keep navigation and footer headings clean after removing editorial numbering. */
-.desktop-menu .menu-navigation a { grid-template-columns: minmax(0, 1fr) auto !important; }
-.drf-section-title { gap: 0 !important; }
-</style>
+<script id="remove-only-stray-brace">
+(function(){
+  function removeStrayBrace(){
+    document.body.childNodes.forEach(function(node){
+      if(node.nodeType===Node.TEXT_NODE && node.textContent.trim()==='}') node.remove();
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',removeStrayBrace);
+  else removeStrayBrace();
+})();
+</script>
+</body></html>
