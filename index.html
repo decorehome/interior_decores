@@ -636,8 +636,10 @@
   transition:color .2s ease,padding .2s ease;
 }
 .mobile-panel a:not(.panel-shop)::after{
-  content:none !important;
-  display:none !important;
+  content:"↗";
+  color:#A99B8C;
+  font-family:var(--sans);
+  font-size:13px;
 }
 .mobile-panel a:not(.panel-shop):hover{color:#687B61;padding-left:5px}
 .mobile-panel .panel-shop{
@@ -1285,6 +1287,213 @@
  .drf-news{grid-column:1/-1!important;grid-row:auto!important}
 }
 </style>
+
+<style id="decore-mobile-footer-fix">
+@media screen and (max-width: 750px) {
+  .decore-reference-footer,
+  footer.decore-reference-footer {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: clip !important;
+    box-sizing: border-box !important;
+  }
+  .drf-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 18px 24px !important;
+    gap: 0 !important;
+    box-sizing: border-box !important;
+    align-items: stretch !important;
+  }
+  .drf-main > * {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .drf-photo {
+    min-height: 0 !important;
+    height: clamp(210px, 62vw, 300px) !important;
+    align-self: auto !important;
+    margin: 0 0 34px !important;
+    background-size: cover !important;
+    background-position: center 48% !important;
+    border-radius: 2px !important;
+  }
+  .drf-brand {
+    padding: 0 8px 38px !important;
+    text-align: left !important;
+    min-width: 0 !important;
+  }
+  .drf-monogram,
+  .drf-wordmark,
+  .drf-tagline {
+    max-width: 100% !important;
+  }
+  .drf-brand h2,
+  .drf-news h2 {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  .drf-brand h2 {
+    font-size: clamp(34px, 9vw, 44px) !important;
+    line-height: 1.02 !important;
+    margin: 26px 0 18px !important;
+  }
+  .drf-brand p {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+  }
+  .drf-shop {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 24px !important;
+  }
+  .drf-information {
+    padding: 28px 8px 34px !important;
+    border-top: 1px solid var(--drf-line) !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--drf-line) !important;
+  }
+  .drf-links {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .drf-links a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 17px 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    line-height: 1.45 !important;
+  }
+  .drf-links a span {
+    flex: 0 0 auto !important;
+    font-family: Arial, sans-serif !important;
+    font-size: 18px !important;
+    font-variant-emoji: text !important;
+    line-height: 1 !important;
+    color: var(--drf-sage) !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  .drf-hours {
+    padding: 0 8px 34px !important;
+    border: 0 !important;
+    min-width: 0 !important;
+  }
+  .drf-hours-arch {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 26px 20px 20px !important;
+    box-sizing: border-box !important;
+    border-radius: 180px 180px 3px 3px !important;
+    overflow: hidden !important;
+  }
+  .drf-clock {
+    position: static !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto 22px !important;
+  }
+  .drf-clock svg {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .drf-hours-title {
+    margin-top: 0 !important;
+  }
+  .drf-hour-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 5px !important;
+    padding: 15px 0 !important;
+    line-height: 1.5 !important;
+  }
+  .drf-hour-row strong {
+    white-space: normal !important;
+    text-align: left !important;
+    overflow-wrap: anywhere !important;
+  }
+  .drf-news {
+    padding: 30px 8px 28px !important;
+    border-top: 1px solid var(--drf-line) !important;
+    min-width: 0 !important;
+  }
+  .drf-news h2 {
+    font-size: clamp(35px, 9.3vw, 45px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.035em !important;
+    margin: 26px 0 24px !important;
+  }
+  .drf-newsletter {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .drf-newsletter input {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding: 15px 12px !important;
+    font-size: 14px !important;
+  }
+  .drf-newsletter button {
+    flex: 0 0 56px !important;
+    padding: 0 !important;
+  }
+  .drf-socials {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 24px !important;
+    margin-top: 28px !important;
+  }
+  .drf-socials a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .drf-socials svg {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .drf-bottom,
+  .drf-footer-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    padding: 18px 8px 0 !important;
+    min-width: 0 !important;
+  }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -1448,16 +1657,16 @@
       <span class="drf-rule"></span>
       <h2>Find the pieces<br>that feel like<br><em>home.</em></h2>
       <p>Discover a curated selection of timeless home décor, inspiring brands and unique collections.</p>
-      <a class="drf-shop" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">VISIT DECORE SHOP <span>↗</span></a>
+      <a class="drf-shop" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">VISIT DECORE SHOP <span>↗︎</span></a>
     </section>
     <section class="drf-information">
       <div class="drf-section-title"><h3>INFORMATION</h3></div>
       <span class="drf-short-rule"></span>
       <nav class="drf-links" aria-label="Information">
-        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/shipping-delivery" target="_blank" rel="noopener">Shipping &amp; Delivery <span>↗</span></a>
-        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" target="_blank" rel="noopener">About Us <span>↗</span></a>
-        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/our-mission" target="_blank" rel="noopener">Our Mission <span>↗</span></a>
-        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/contact" target="_blank" rel="noopener">Contact Us <span>↗</span></a>
+        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/shipping-delivery" target="_blank" rel="noopener">Shipping &amp; Delivery <span>↗︎</span></a>
+        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" target="_blank" rel="noopener">About Us <span>↗︎</span></a>
+        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/our-mission" target="_blank" rel="noopener">Our Mission <span>↗︎</span></a>
+        <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/contact" target="_blank" rel="noopener">Contact Us <span>↗︎</span></a>
       </nav>
     </section>
     <section class="drf-hours">
@@ -1497,7 +1706,7 @@
       <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Terms</a>
       <a href="#home">Sitemap</a>
     </nav>
-    <a class="drf-backtop" href="#home">Back to top <span>↗</span></a>
+    <a class="drf-backtop" href="#home">Back to top <span>↗︎</span></a>
   </div>
 </footer>
 
