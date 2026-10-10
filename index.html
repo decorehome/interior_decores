@@ -1286,6 +1286,34 @@
  .drf-hours{grid-column:2!important;grid-row:auto!important}
  .drf-news{grid-column:1/-1!important;grid-row:auto!important}
 }
+
+
+/* MOBILE RESPONSIVE FIXES — keep desktop styling unchanged */
+@media (max-width: 750px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .hero { width: 100%; max-width: 100%; min-height: 640px; height: calc(100svh - 34px); overflow: hidden; }
+  .hero-copy {
+    left: 0; right: 0; width: 100%; max-width: 100%; box-sizing: border-box;
+    padding: 90px 22px 35px; align-items: center; justify-content: center;
+    text-align: center; overflow-wrap: anywhere;
+  }
+  .hero-copy > * { max-width: 100%; }
+  .hero h1 { width: 100%; max-width: 100%; font-size: clamp(32px, 8.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; overflow-wrap: normal; }
+  .hero-sub { max-width: 310px; font-size: 15px; line-height: 1.5; }
+  .hero-cta { max-width: 100%; box-sizing: border-box; white-space: normal; padding: 14px 18px; }
+  .hero-bg { background-position: center center; }
+  .hero-foot { left: 16px; right: 16px; gap: 12px; font-size: 7px; letter-spacing: .12em; }
+  .closing { width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; }
+  .closing-inner { width: 100%; max-width: 100%; box-sizing: border-box; padding-left: 22px; padding-right: 22px; }
+  .closing h2 { font-size: clamp(34px, 9vw, 46px); line-height: 1.04; overflow-wrap: normal; }
+  .closing p { max-width: 100%; font-size: 15px; line-height: 1.5; }
+  .mobile-panel { box-sizing: border-box; width: 100%; max-width: 100%; padding: 76px 24px 32px; gap: 0; align-items: stretch; justify-content: flex-start; overflow-y: auto; }
+  .mobile-panel > a:not(.panel-shop) { position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; padding: 13px 0; font-size: clamp(25px, 7vw, 30px); line-height: 1.15; border-bottom: 1px solid #D8D9D5; }
+  .mobile-panel > a:not(.panel-shop)::after { content: none !important; display: none !important; }
+  .mobile-panel > a:not(.panel-shop) span, .mobile-panel .menu-link-arrow { display: none !important; }
+  .mobile-panel .panel-shop { align-self: flex-start; margin-top: 28px; }
+  .mobile-panel .panel-brand { margin: 12px 0 28px; }
+}
 </style>
 </head>
 <body>
