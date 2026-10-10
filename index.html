@@ -1494,6 +1494,168 @@
   }
 }
 </style>
+
+<style id="decore-mobile-two-column-refinement">
+/* Mobile editorial layout: keep photo + brand together, and information + hours on one row.
+   These rules apply only to small screens; desktop styling is unchanged. */
+@media screen and (max-width: 600px) {
+  .decore-reference-footer,
+  footer.decore-reference-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: clip !important;
+  }
+  .drf-main {
+    display: grid !important;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr) !important;
+    gap: 0 12px !important;
+    padding: 0 14px 20px !important;
+    align-items: stretch !important;
+  }
+  .drf-main > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .drf-photo {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5 !important;
+    margin: 0 !important;
+    align-self: stretch !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    border-radius: 2px !important;
+  }
+  .drf-brand {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    padding: 8px 0 22px !important;
+    text-align: left !important;
+    align-self: center !important;
+  }
+  .drf-brand h2 {
+    font-size: clamp(25px, 7vw, 34px) !important;
+    line-height: 1.02 !important;
+    margin: 16px 0 12px !important;
+    overflow-wrap: normal !important;
+  }
+  .drf-brand p {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 12px !important;
+  }
+  .drf-monogram { font-size: clamp(36px, 10vw, 48px) !important; }
+  .drf-wordmark { font-size: clamp(15px, 4vw, 19px) !important; }
+  .drf-tagline { font-size: 7px !important; letter-spacing: .12em !important; }
+  .drf-shop {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 11px 10px !important;
+    margin-top: 14px !important;
+    gap: 6px !important;
+    font-size: 8px !important;
+    letter-spacing: .08em !important;
+    white-space: normal !important;
+  }
+  .drf-information {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    padding: 20px 8px 18px 0 !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--drf-line) !important;
+    border-bottom: 0 !important;
+    border-right: 1px solid var(--drf-line) !important;
+    min-width: 0 !important;
+  }
+  .drf-links a {
+    gap: 5px !important;
+    padding: 12px 0 !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    align-items: center !important;
+  }
+  .drf-links a span {
+    font-size: 14px !important;
+    flex: 0 0 auto !important;
+    color: var(--drf-sage) !important;
+    font-family: Arial, sans-serif !important;
+  }
+  .drf-hours {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    padding: 20px 0 18px 8px !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--drf-line) !important;
+    min-width: 0 !important;
+  }
+  .drf-hours-arch {
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 18px 12px 14px !important;
+    border-radius: 90px 90px 3px 3px !important;
+    overflow: hidden !important;
+  }
+  .drf-clock {
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 auto 12px !important;
+  }
+  .drf-hours-title {
+    font-size: 8px !important;
+    letter-spacing: .1em !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    margin: 0 0 12px !important;
+  }
+  .drf-hour-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
+    padding: 10px 0 !important;
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+  }
+  .drf-hour-row strong {
+    font-size: 10px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    text-align: left !important;
+  }
+  .drf-news {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    padding: 24px 0 20px !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--drf-line) !important;
+    min-width: 0 !important;
+  }
+  .drf-news h2 {
+    font-size: clamp(28px, 8vw, 38px) !important;
+    line-height: 1.04 !important;
+  }
+  .drf-bottom,
+  .drf-footer-bottom {
+    grid-column: 1 / -1 !important;
+    padding: 16px 0 0 !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .drf-main { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr) !important; gap: 0 8px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .drf-brand h2 { font-size: 24px !important; }
+  .drf-brand p { font-size: 10px !important; }
+  .drf-information { padding-right: 6px !important; }
+  .drf-hours { padding-left: 6px !important; }
+  .drf-links a { font-size: 10px !important; }
+  .drf-hours-arch { padding-left: 9px !important; padding-right: 9px !important; }
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
