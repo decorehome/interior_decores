@@ -1,213 +1,1204 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="DECORE — a curated destination bringing together beautiful home décor and selected pieces from brands we love.">
-<meta name="theme-color" content="#F7F7F5">
-<title>DECORE — Curated Home Décor</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F7F7F5;--white:#fff;--ink:#222220;--muted:#777773;--line:#D8D9D8;--card:#EEF0F2;--warm:#A99B8C;--green:#687B61;--darkgreen:#4F624A;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.6}body.no-scroll{overflow:hidden}a{text-decoration:none;color:inherit}button,input{font:inherit}img{display:block;width:100%;height:100%;object-fit:cover}.skip-link{position:fixed;left:10px;top:10px;z-index:200;background:#fff;padding:8px 12px;transform:translateY(-150%)}.skip-link:focus{transform:none}
-.announcement{height:38px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.12em}.header{position:absolute;top:38px;left:0;width:100%;height:118px;z-index:40;color:#fff;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding:28px 5vw 0;transition:background .35s,color .35s,box-shadow .35s}.header>*{pointer-events:auto}.header.scrolled{position:fixed;top:0;height:76px;padding-top:0;align-items:center;background:rgba(247,247,245,.98);color:var(--ink);box-shadow:0 1px 0 rgba(34,34,32,.08)}.header-left{grid-column:1;align-self:start}.header-note{font-size:8px;line-height:1.5;letter-spacing:.2em;text-transform:uppercase;opacity:.82}.header.scrolled .header-note{opacity:.55}.brandmark{width:150px;display:flex;flex-direction:column;align-items:center;justify-self:center;grid-column:2;color:inherit;line-height:1}.brandmark-d{font-family:var(--serif);font-size:46px;font-weight:400;height:43px}.brandmark-name{font-size:17px;letter-spacing:.31em;margin-left:.31em}.brandmark-tag{font-size:5px;letter-spacing:.15em;margin-top:6px;white-space:nowrap;opacity:.75}.header-tools{grid-column:3;display:flex;justify-content:flex-end;align-items:center;gap:22px;padding-top:3px}.tool{border:0;background:none;color:inherit;cursor:pointer}.search-tool{font-size:29px;line-height:.7;transform:rotate(-20deg)}.visit{font-size:10px;text-transform:uppercase;letter-spacing:.12em;border-bottom:1px solid currentColor;padding-bottom:4px}.menu-toggle{display:block;border:0;background:none;color:inherit;width:28px;padding:0;cursor:pointer}.menu-toggle span{display:block;height:1px;background:currentColor;margin:6px 0;width:24px}
-.hero{height:calc(100vh - 38px);min-height:680px;position:relative;overflow:hidden;color:#fff}.hero-bg{position:absolute;inset:0;background:url("assets/decore-hero.jpg") 50% 46%/cover no-repeat;transform:scale(1.015)}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,.06) 58%,rgba(0,0,0,.28))}.hero-copy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:115px 30px 0}.eyebrow,.section-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}.light{color:#fff}.hero h1{font-size:clamp(48px,6vw,88px);line-height:1.01;font-weight:400;margin:19px 0 15px;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.18)}.hero h1 em{font-family:var(--serif);font-style:italic}.hero-sub{font-family:var(--serif);font-size:19px;font-style:italic;margin:0 0 30px;text-shadow:0 2px 12px rgba(0,0,0,.18)}.hero-cta,.light-button{border:1px solid rgba(255,255,255,.9);padding:14px 30px;text-transform:uppercase;font-size:10px;letter-spacing:.15em;transition:.25s}.hero-cta:hover,.light-button:hover{background:#fff;color:var(--ink)}.hero-foot{position:absolute;left:5vw;right:5vw;bottom:25px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.18em}
-.section{padding:115px 7vw}.idea{background:var(--bg)}.idea-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:10vw;margin-top:45px}.idea h2,.edit h2,.collections h2,.brands h2{font-family:var(--serif);font-size:clamp(44px,5vw,70px);font-weight:400;line-height:1.04;margin:0}.idea h2 em,.edit h2 em,.collections h2 em,.about h2 em,.details h2 em,.closing h2 em{font-family:var(--serif);font-style:italic}.lead{font-size:18px;line-height:1.65;max-width:620px;color:#4f4f4b;margin:27px 0 0}.idea-copy{max-width:520px;color:var(--muted);padding-top:4px}.idea-copy p{margin:0 0 20px}.line-link{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.13em;border-bottom:1px solid currentColor;padding-bottom:5px;margin-top:8px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:42px}.section-intro{max-width:360px;color:var(--muted);margin:0 0 4px}.brands{background:#fff}.brand-collections{display:grid;grid-template-columns:1fr 1fr;gap:18px}.brand-card{display:block}.brand-image{height:500px;overflow:hidden;background:var(--card)}.brand-image img{transition:transform .7s}.brand-card:hover .brand-image img{transform:scale(1.035)}.brand-card-meta{display:flex;justify-content:space-between;align-items:baseline;padding:17px 0 0;border-bottom:1px solid var(--line);padding-bottom:13px}.brand-card-meta span{font-family:var(--serif);font-size:27px;letter-spacing:.02em}.brand-card-meta small{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted)}
-.collections{background:var(--bg)}.collection-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px;height:620px}.collection-card{position:relative;overflow:hidden;background:#ddd}.collection-card img{transition:transform .7s}.collection-card:hover img{transform:scale(1.035)}.collection-card:after{content:"";position:absolute;inset:42% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.62))}.collection-card span,.collection-card small{position:absolute;z-index:2;left:28px;color:#fff}.collection-card span{bottom:50px;font-family:var(--serif);font-size:31px}.collection-card small{bottom:25px;font-size:9px;letter-spacing:.13em;text-transform:uppercase}
-.edit{background:#fff}.edit-head{align-items:end}.muted{color:var(--muted);margin:14px 0 0}.filters{display:flex;gap:22px;flex-wrap:wrap}.filter{border:0;background:none;padding:4px 0;border-bottom:1px solid transparent;color:var(--muted);cursor:pointer;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.filter.active{color:var(--ink);border-color:var(--ink)}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 18px}.product-card{cursor:pointer}.product-image{aspect-ratio:4/5;background:var(--card);overflow:hidden;position:relative}.product-image img{transition:transform .55s}.product-card:hover .product-image img{transform:scale(1.035)}.product-badge{position:absolute;top:12px;left:12px;background:#fff;padding:5px 8px;font-size:8px;letter-spacing:.12em;text-transform:uppercase}.product-info{padding-top:13px}.product-brand{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.product-name{font-size:13px;margin-top:4px}.product-price{font-size:12px;margin-top:5px}.product-price del{color:#999;margin-left:7px}.edit-cta{text-align:center;margin-top:60px}.dark-button{display:inline-flex;background:var(--ink);color:#fff;padding:14px 24px;text-transform:uppercase;font-size:10px;letter-spacing:.13em;transition:.25s}.dark-button:hover{background:var(--green)}
-.split-section{display:grid;grid-template-columns:1fr 1fr;min-height:650px}.split-section.reverse .split-image{order:2}.split-image{min-height:650px;background:var(--card)}.split-copy{padding:9vw 8vw;display:flex;flex-direction:column;justify-content:center}.split-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.3vw,60px);line-height:1.05;margin:20px 0 28px}.split-copy p{max-width:480px;color:var(--muted);margin:0 0 18px}.details{background:#E3E5E2}.closing{background:var(--green);color:#fff;text-align:center;padding:120px 7vw}.closing h2{font-family:var(--serif);font-size:clamp(46px,5vw,72px);font-weight:400;line-height:1.04;margin:18px 0 20px}.closing p:not(.eyebrow){max-width:430px;margin:0 auto 32px;color:rgba(255,255,255,.8)}
-.footer{background:var(--bg);padding:75px 7vw 25px}.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1.15fr 1.3fr;gap:60px;padding-bottom:70px}.footer-title{font-size:9px;letter-spacing:.2em;color:var(--warm);margin-bottom:25px}.footer-grid>div>a{display:block;font-size:13px;margin-bottom:18px}.footer-grid>div>p{color:var(--muted);max-width:290px}.hours>div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-top:1px solid #E1E2E0;font-size:12px}.hours>div:last-child{border-bottom:1px solid #E1E2E0}.hours span:last-child{color:var(--muted);white-space:nowrap}.newsletter{display:flex;border:1px solid #999;margin-top:25px}.newsletter input{width:100%;border:0;background:transparent;outline:0;padding:15px 18px;color:var(--ink)}.newsletter button{border:0;background:none;padding:0 18px;font-size:20px;cursor:pointer}.footer-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;font-size:9px;letter-spacing:.12em;color:var(--muted)}
-.search-overlay,.product-modal{position:fixed;inset:0;z-index:100;background:rgba(247,247,245,.98);display:none;padding:12vh 9vw;overflow:auto}.search-overlay.open,.product-modal.open{display:block}.overlay-close{position:absolute;right:4vw;top:25px;border:0;background:none;font-size:38px;color:var(--ink);cursor:pointer}.search-box{max-width:950px;margin:auto}.search-box input{display:block;width:100%;border:0;border-bottom:1px solid var(--ink);background:none;outline:0;padding:20px 0;font-family:var(--serif);font-size:42px}.search-result{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}.product-modal{background:rgba(34,34,32,.55);padding:5vh 5vw}.modal-inner{max-width:1100px;margin:auto;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;min-height:70vh}.modal-image{background:var(--card)}.modal-copy{padding:8vw 6vw;display:flex;flex-direction:column;justify-content:center}.modal-copy h2{font-family:var(--serif);font-weight:400;font-size:48px;line-height:1.05;margin:15px 0}.modal-price{font-size:16px;margin-bottom:25px}.modal-copy p{color:var(--muted);max-width:500px}.modal-meta{font-size:11px;color:var(--muted);margin:15px 0 28px;line-height:2}.desktop-menu{position:fixed;inset:0;z-index:95;background:rgba(247,247,245,.985);display:none;overflow:auto}.desktop-menu.open{display:block}.desktop-menu-inner{min-height:100%;padding:13vh 10vw 8vh;display:flex;flex-direction:column;justify-content:center}.menu-kicker{font-size:10px;letter-spacing:.2em;color:var(--warm);margin-bottom:35px}.desktop-menu nav{display:flex;flex-direction:column;max-width:800px}.desktop-menu nav a{font-family:var(--serif);font-size:clamp(42px,6vw,78px);line-height:1.05;padding:8px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.desktop-menu nav a span{font-family:var(--sans);font-size:10px;letter-spacing:.14em;color:var(--muted);padding-top:17px}.menu-shop{display:inline-block;margin-top:35px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:5px;width:max-content}.panel-close{position:absolute;right:4vw;top:22px;border:0;background:none;font-size:38px;cursor:pointer}.mobile-panel{display:none}.panel-brand{font-family:var(--serif);font-size:25px;letter-spacing:.2em}
-@media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,1fr)}.collection-grid{height:560px}.footer-grid{grid-template-columns:1fr 1fr}.split-section{min-height:520px}.split-image{min-height:520px}}
-@media(max-width:750px){.announcement{height:34px;font-size:10px}.header{top:34px;height:74px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}.header.scrolled{top:0}.header-left{display:none}.brandmark{position:absolute;left:50%;transform:translateX(-50%);width:110px}.brandmark-d{font-size:36px;height:33px}.brandmark-name{font-size:13px}.brandmark-tag{font-size:4px}.header-tools{padding:0;gap:15px}.header-tools .visit{display:none}.hero{height:calc(100svh - 34px);min-height:620px}.hero-bg{background-position:58% center}.hero-copy{padding:90px 20px 0}.hero h1{font-size:44px}.hero-sub{font-size:16px}.hero-foot{left:20px;right:20px;font-size:8px}.section{padding:75px 20px}.idea-grid{grid-template-columns:1fr;gap:35px}.idea h2,.collections h2,.edit h2{font-size:46px}.lead{font-size:16px}.section-head{flex-direction:column;align-items:flex-start;gap:24px}.brand-collections{grid-template-columns:1fr}.brand-image{height:430px}.collection-grid{grid-template-columns:1fr;height:auto}.collection-card,.collection-card.tall{height:440px}.product-grid{grid-template-columns:repeat(2,1fr);gap:28px 12px}.product-name{font-size:12px}.split-section{grid-template-columns:1fr;min-height:0}.split-section.reverse .split-image{order:0}.split-image{min-height:430px}.split-copy{padding:70px 20px}.split-copy h2{font-size:42px}.closing{padding:85px 20px}.footer{padding:55px 20px 20px}.footer-grid{grid-template-columns:1fr;gap:40px;padding-bottom:50px}.footer-bottom{flex-direction:column;gap:10px}.search-overlay,.product-modal{padding:90px 20px 30px}.search-box input{font-size:32px}.modal-inner{grid-template-columns:1fr}.modal-image{min-height:360px}.modal-copy{padding:45px 28px}.modal-copy h2{font-size:40px}.overlay-close{right:18px;top:14px}.desktop-menu{display:none!important}.mobile-panel{position:fixed;inset:0;z-index:90;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transform:translateX(100%);transition:.35s}.mobile-panel.open{transform:none}.mobile-panel a{font-family:var(--serif);font-size:29px}.panel-shop{font-family:var(--sans)!important;font-size:10px!important;text-transform:uppercase;letter-spacing:.14em;border-bottom:1px solid}.panel-close{right:20px;top:15px}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DECORE — Curated Home Décor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET
+        ========================================= */
+        :root {
+            --bg: #FAF9F6;
+            --bg-alt: #F2EFE9;
+            --text: #1A1A1A;
+            --text-light: #6B655D;
+            --accent: #8A7D72;
+            --border: #E5E0D8;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', -apple-system, sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-/* DECORE brand showcase: intentionally minimal, positioned before collections. */
-.brand-list{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(34,34,32,.12);border-bottom:1px solid rgba(34,34,32,.12);margin-top:48px}
-.brand-name-card{min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-right:1px solid rgba(34,34,32,.10);transition:background .3s ease}
-.brand-name-card:last-child{border-right:0}
-.brand-name-card span{font-family:var(--serif);font-size:clamp(27px,3vw,43px);font-weight:400;letter-spacing:.01em}
-.brand-name-card small{text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:var(--muted);opacity:0;transform:translateY(5px);transition:.3s ease}
-.brand-name-card:hover{background:#EEF0EC}
-.brand-name-card:hover small{opacity:1;transform:translateY(0)}
-@media(max-width:700px){.brand-list{grid-template-columns:1fr;margin-top:34px}.brand-name-card{min-height:125px;border-right:0;border-bottom:1px solid rgba(34,34,32,.10)}.brand-name-card:last-child{border-bottom:0}.brand-name-card small{opacity:1;transform:none}}
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-</style>
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--sans);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* =========================================
+           TYPOGRAPHY
+        ========================================= */
+        h1, h2, h3, h4 {
+            font-family: var(--serif);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .section-label {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* =========================================
+           LAYOUT & UTILITIES
+        ========================================= */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 8rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 1rem 2rem;
+            border: 1px solid var(--text);
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .btn-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+        }
+
+        .btn-link:hover {
+            opacity: 0.6;
+        }
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 249, 246, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .nav.scrolled {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-cta {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none; /* Hidden on desktop, shown on mobile */
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 1.5px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .hero-sub {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        /* =========================================
+           INTRO SECTION
+        ========================================= */
+        .intro {
+            background: var(--bg-alt);
+            text-align: center;
+            padding: 10rem 2rem;
+        }
+
+        .intro h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .intro p {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           THE IDEA SECTION
+        ========================================= */
+        .idea-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .idea-text h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .idea-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            max-width: 450px;
+        }
+
+        .idea-visual {
+            aspect-ratio: 4/5;
+            background: var(--bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--serif);
+            font-size: 8rem;
+            color: var(--border);
+        }
+
+        /* =========================================
+           BRANDS SECTION
+        ========================================= */
+        .brands {
+            background: var(--bg-alt);
+        }
+
+        .brands-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .brands-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+        }
+
+        .brands-list {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid var(--border);
+        }
+
+        .brand-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .brand-item:hover {
+            padding-left: 1rem;
+        }
+
+        .brand-item h3 {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-item a {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .brand-item:hover a {
+            color: var(--text);
+        }
+
+        /* =========================================
+           COLLECTIONS SECTION
+        ========================================= */
+        .collections-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .collections-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .collections-header p {
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .collection-card-img {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--bg-alt);
+        }
+
+        .collection-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .collection-card-info {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .collection-card-info h3 {
+            font-size: 1.5rem;
+        }
+
+        .collection-card-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            font-family: var(--serif);
+        }
+
+        /* =========================================
+           THE EDIT SECTION
+        ========================================= */
+        .edit {
+            background: var(--bg-alt);
+        }
+
+        .edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .edit-header h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+        }
+
+        .edit-filters {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .edit-filters button {
+            background: none;
+            border: none;
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .edit-filters button.active,
+        .edit-filters button:hover {
+            color: var(--text);
+            border-bottom: 1px solid var(--text);
+        }
+
+        .edit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .edit-item {
+            aspect-ratio: 1;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .edit-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .edit-cta {
+            text-align: center;
+        }
+
+        /* =========================================
+           ABOUT & INSPIRATION (Split Sections)
+        ========================================= */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        .split-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 6rem;
+        }
+
+        .split-content h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .split-content p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .split-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        /* =========================================
+           FULL COLLECTION CTA
+        ========================================= */
+        .full-cta {
+            text-align: center;
+            padding: 10rem 2rem;
+            background: var(--bg-alt);
+        }
+
+        .full-cta h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .full-cta p {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .footer {
+            background: var(--text);
+            color: var(--bg);
+            padding: 6rem 0 2rem;
+        }
+
+        .footer-top {
+            text-align: center;
+            margin-bottom: 6rem;
+            padding-bottom: 6rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-top-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-family: var(--serif);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-top p {
+            max-width: 400px;
+            margin: 0 auto 3rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .footer-col h4 {
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 0.5rem 0;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .newsletter-form button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-bottom-links a:hover {
+            color: #fff;
+        }
+
+        /* =========================================
+           OVERLAYS (Menu & Search)
+        ========================================= */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .overlay-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text);
+        }
+
+        .menu-overlay-links {
+            list-style: none;
+            text-align: center;
+        }
+
+        .menu-overlay-links li {
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-overlay-links a {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .search-overlay-content {
+            width: 100%;
+            max-width: 600px;
+            padding: 0 2rem;
+        }
+
+        .search-overlay-content h3 {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-input-wrap {
+            border-bottom: 1px solid var(--text);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-wrap input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: var(--serif);
+            font-size: 2rem;
+            padding: 1rem 0;
+            outline: none;
+            color: var(--text);
+        }
+
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+        @media (max-width: 1024px) {
+            .idea-grid, .split-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .split-content {
+                padding: 4rem 2rem;
+                text-align: center;
+                align-items: center;
+            }
+
+            .split-content p {
+                max-width: 100%;
+            }
+
+            .split-image {
+                min-height: 50vh;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .hamburger, .nav-icon {
+                display: flex;
+            }
+
+            section {
+                padding: 5rem 0;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .edit-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .edit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .edit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
 
-<div class="announcement">Welcome home. Discover DECORE.</div>
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+    <nav class="nav" id="navbar">
+        <a href="#home" class="nav-logo">DECORE</a>
+        
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#idea">The Idea</a></li>
+            <li><a href="#brands">Brands</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#edit">The Edit</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#inspiration">Inspiration</a></li>
+        </ul>
 
-<header class="header" id="header">
-  <div class="header-left"><span class="header-note">A CURATED HOME<br>FOR BEAUTIFUL LIVING</span></div>
-  <a class="brandmark" href="#home" aria-label="DECORE home">
-    <span class="brandmark-d">D</span>
-    <span class="brandmark-name">DECORE</span>
-    <span class="brandmark-tag">CURATED. CONSIDERED. CHOSEN FOR YOU.</span>
-  </a>
-  <div class="header-tools">
-    <button class="tool search-tool" id="searchBtn" aria-label="Search">⌕</button>
-    <a class="tool visit" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit Shop</a>
-    <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-  </div>
-</header>
-
-<div class="mobile-panel" id="mobilePanel" aria-hidden="true">
-  <button class="panel-close" id="panelClose" aria-label="Close menu">×</button>
-  <div class="panel-brand">DECORE</div>
-  <a href="#home">Home</a>
-  <a href="#idea">The Idea</a>
-  <a href="#brands">Brands</a>
-  <a href="#collections">Collections</a>
-  <a href="#edit">The Edit</a>
-  <a href="#about">About</a>
-  <a href="#inspiration">Inspiration</a>
-  <a class="panel-shop" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit DECORE Shop →</a>
-</div>
-
-<div class="desktop-menu" id="desktopMenu" aria-hidden="true">
-  <button class="panel-close" id="desktopMenuClose" aria-label="Close menu">×</button>
-  <div class="desktop-menu-inner">
-    <div class="menu-kicker">DECORE / EXPLORE</div>
-    <nav>
-      <a href="#home">Home <span>01</span></a>
-      <a href="#idea">The Idea <span>02</span></a>
-      <a href="#brands">Brands <span>02</span></a>
-      <a href="#collections">Collections <span>03</span></a>
-      <a href="#edit">The Edit <span>05</span></a>
-      <a href="#about">About <span>06</span></a>
-      <a href="#inspiration">Inspiration <span>07</span></a>
+        <div class="nav-actions">
+            <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" class="nav-cta" target="_blank">Visit Shop ↗</a>
+            <div class="nav-icon" id="search-icon">⌕</div>
+            <div class="hamburger" id="menu-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-    <a class="menu-shop" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit the full DECORE shop →</a>
-  </div>
-</div>
 
-<main id="main">
-<section class="hero" id="home">
-  <div class="hero-bg"></div><div class="hero-shade"></div>
-  <div class="hero-copy">
-    <p class="eyebrow light">CURATED HOME DÉCOR</p>
-    <h1>Curated pieces for<br><em>a home you love.</em></h1>
-    <p class="hero-sub">Handpicked pieces from your favorite brands.</p>
-    <a class="hero-cta" href="#idea">Discover DECORE</a>
-  </div>
-  <div class="hero-foot"><span>DECORE / 01</span><span>SCROLL TO EXPLORE ↓</span></div>
-</section>
-
-<section class="idea section" id="idea">
-  <div class="section-kicker">01 / THE IDEA</div>
-  <div class="idea-grid">
-    <div>
-      <h2>Different brands.<br><em>One considered edit.</em></h2>
-      <p class="lead">DECORE brings together the best pieces from brands we love — making it easier to discover beautiful objects, details and décor for your home in one place.</p>
+    <!-- =========================================
+         OVERLAYS
+    ========================================= -->
+    <!-- Mobile Menu Overlay -->
+    <div class="overlay" id="menu-overlay">
+        <button class="overlay-close" id="menu-close">×</button>
+        <ul class="menu-overlay-links">
+            <li><a href="#home" class="overlay-link">Home</a></li>
+            <li><a href="#idea" class="overlay-link">The Idea</a></li>
+            <li><a href="#brands" class="overlay-link">Brands</a></li>
+            <li><a href="#collections" class="overlay-link">Collections</a></li>
+            <li><a href="#edit" class="overlay-link">The Edit</a></li>
+            <li><a href="#about" class="overlay-link">About</a></li>
+            <li><a href="#inspiration" class="overlay-link">Inspiration</a></li>
+        </ul>
     </div>
-    <div class="idea-copy">
-      <p>We believe good design is found in the details. A well-shaped vase, a warm candle, a considered mirror — each piece has the power to change how a space feels.</p>
-      <p>DECORE is a curated destination for those pieces: selected with a focus on design, quality, character and how they live together.</p>
-      <a class="line-link" href="#brands">Explore the brands →</a>
+
+    <!-- Search Overlay -->
+    <div class="overlay" id="search-overlay">
+        <button class="overlay-close" id="search-close">×</button>
+        <div class="search-overlay-content">
+            <h3>Search DECORE</h3>
+            <div class="search-input-wrap">
+                <input type="text" placeholder="Search for pieces...">
+                <span>→</span>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
-<section class="brands section" id="brands">
-  <div class="section-head">
-    <div>
-      <div class="section-kicker">02 / BRANDS WE CURATE</div>
-      <h2>The brands<br><em>behind the edit.</em></h2>
-    </div>
-    <p class="section-intro">Selected names and pieces brought together through the DECORE point of view.</p>
-  </div>
-  <div class="brand-list" aria-label="Brands we curate">
-    <a class="brand-name-card" href="#edit"><span>ZARA HOME</span><small>Explore the edit →</small></a>
-    <a class="brand-name-card" href="#edit"><span>IKEA</span><small>Explore the edit →</small></a>
-    <a class="brand-name-card" href="#edit"><span>H&amp;M HOME</span><small>Explore the edit →</small></a>
-  </div>
-</section>
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <span class="hero-label">Welcome home. Discover DECORE.</span>
+            <h1>A Curated Home<br>for <em>Beautiful</em> Living</h1>
+            <p class="hero-sub">Curated. Considered. Chosen for you.</p>
+            <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" class="btn" target="_blank">Visit the full DECORE shop ↗</a>
+            <div class="scroll-indicator">Scroll to explore ↓</div>
+        </section>
 
-<section class="collections section" id="collections">
-  <div class="section-head">
-    <div><div class="section-kicker">03 / COLLECTIONS</div><h2>Explore by<br><em>category.</em></h2></div>
-    <p class="section-intro">A focused selection of pieces for the spaces and moments that make a home feel personal.</p>
-  </div>
-  <div class="collection-grid">
-    <a class="collection-card tall" href="#edit" data-filter-link="Mirrors"><img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE962763.avif?v=1789133528" alt="Mirrors collection" loading="lazy"><span>Mirrors</span><small>Shape, reflection & balance →</small></a>
-    <a class="collection-card" href="#edit" data-filter-link="Vases"><img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004296.avif?v=1789130283" alt="Vases collection" loading="lazy"><span>Vases</span><small>Form, texture & quiet detail →</small></a>
-    <a class="collection-card" href="#edit" data-filter-link="Candles"><img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1008313.avif?v=1789130149" alt="Candles collection" loading="lazy"><span>Candles</span><small>Atmosphere in the details →</small></a>
-  </div>
-</section>
+        <!-- INTRO -->
+        <section class="intro">
+            <div class="container reveal">
+                <h2>A more considered way to feel at home.</h2>
+                <p>Discover the brands, collections and little details that make a space feel like yours.</p>
+                <a href="#idea" class="btn-link">Discover DECORE →</a>
+            </div>
+        </section>
 
-<section class="edit section" id="edit">
-  <div class="section-head edit-head">
-    <div><div class="section-kicker">04 / THE DECORE EDIT</div><h2>Pieces worth<br><em>discovering.</em></h2><p class="muted">A small selection from the full DECORE collection.</p></div>
-    <div class="filters" role="tablist" aria-label="Product categories"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Mirrors">Mirrors</button><button class="filter" data-filter="Vases">Vases</button><button class="filter" data-filter="Candles">Candles</button></div>
-  </div>
-  <div class="product-grid" id="productGrid"></div>
-  <div class="edit-cta"><a class="dark-button" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Explore the full collection</a></div>
-</section>
+        <!-- THE IDEA -->
+        <section id="idea">
+            <div class="container">
+                <div class="idea-grid">
+                    <div class="idea-text reveal">
+                        <span class="section-label">The Idea</span>
+                        <h2>Different brands.<br>One considered edit.</h2>
+                        <p>DECORE brings together the best pieces from brands we love — making it easier to discover beautiful objects, details and décor for your home in one place.</p>
+                        <p>We believe good design is found in the details. A well-shaped vase, a warm candle, a considered mirror — each piece has the power to change how a space feels.</p>
+                        <a href="#brands" class="btn-link">Explore the brands →</a>
+                    </div>
+                    <div class="idea-visual reveal">
+                        D.
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="about split-section" id="about">
-  <div class="split-image"><img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE949300.avif?v=1789133677" alt="DECORE home décor selection" loading="lazy"></div>
-  <div class="split-copy"><div class="section-kicker">05 / ABOUT DECORE</div><h2>More than a collection.<br><em>A point of view.</em></h2><p>DECORE brings the best pieces from your favorite brands together in one place.</p><p>Our purpose is simple: to make discovering beautiful home décor feel inspiring, calm and considered.</p><a class="line-link" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" target="_blank" rel="noopener">Discover our story →</a></div>
-</section>
+        <!-- BRANDS -->
+        <section class="brands" id="brands">
+            <div class="container">
+                <div class="brands-header reveal">
+                    <span class="section-label">Brands we curate</span>
+                    <h2>The brands behind the edit.</h2>
+                </div>
+                <div class="brands-list reveal">
+                    <div class="brand-item">
+                        <h3>ZARA HOME</h3>
+                        <a href="#edit">Explore the edit →</a>
+                    </div>
+                    <div class="brand-item">
+                        <h3>IKEA</h3>
+                        <a href="#edit">Explore the edit →</a>
+                    </div>
+                    <div class="brand-item">
+                        <h3>H&M HOME</h3>
+                        <a href="#edit">Explore the edit →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section class="details split-section reverse" id="inspiration">
-  <div class="split-image"><img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004297.avif?v=1789130283" alt="Decorative home details" loading="lazy"></div>
-  <div class="split-copy"><div class="section-kicker">06 / INSPIRATION</div><h2>The secret to a more beautiful home? <em>Look at the details.</em></h2><p>A vase, a candle, a mirror — small choices can change the feeling of an entire room.</p><p>Explore the ideas, combinations and details that shape the DECORE point of view.</p><a class="line-link" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/blogs/news/decorative-candles-the-small-detail-that-changes-everything" target="_blank" rel="noopener">Read the story →</a></div>
-</section>
+        <!-- COLLECTIONS -->
+        <section id="collections">
+            <div class="container">
+                <div class="collections-header reveal">
+                    <span class="section-label">Collections</span>
+                    <h2>Explore by category.</h2>
+                    <p>A focused selection of pieces for the spaces and moments that make a home feel personal.</p>
+                </div>
+                <div class="collections-grid">
+                    <a href="#edit" class="collection-card reveal">
+                        <div class="collection-card-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE962763.avif?v=1789133528" alt="Mirrors">
+                        </div>
+                        <div class="collection-card-info">
+                            <h3>Mirrors</h3>
+                            <span>Shape, reflection & balance →</span>
+                        </div>
+                    </a>
+                    <a href="#edit" class="collection-card reveal">
+                        <div class="collection-card-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004296.avif?v=1789130283" alt="Vases">
+                        </div>
+                        <div class="collection-card-info">
+                            <h3>Vases</h3>
+                            <span>Form, texture & quiet detail →</span>
+                        </div>
+                    </a>
+                    <a href="#edit" class="collection-card reveal">
+                        <div class="collection-card-img">
+                            <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1008313.avif?v=1789130149" alt="Candles">
+                        </div>
+                        <div class="collection-card-info">
+                            <h3>Candles</h3>
+                            <span>Atmosphere in the details →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-<section class="closing">
-  <div class="closing-inner"><p class="eyebrow light">THE FULL DECORE COLLECTION</p><h2>Find the pieces that<br><em>feel like home.</em></h2><p>Discover the complete selection on the DECORE shop.</p><a class="light-button" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit DECORE Shop</a></div>
-</section>
-</main>
+        <!-- THE EDIT -->
+        <section class="edit" id="edit">
+            <div class="container">
+                <div class="edit-header reveal">
+                    <div>
+                        <span class="section-label">The DECORE Edit</span>
+                        <h2>Pieces worth discovering.</h2>
+                    </div>
+                    <div class="edit-filters">
+                        <button class="active">All</button>
+                        <button>Mirrors</button>
+                        <button>Vases</button>
+                        <button>Candles</button>
+                    </div>
+                </div>
+                <div class="edit-grid reveal">
+                    <div class="edit-item">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE949300.avif?v=1789133677" alt="Edit Piece 1">
+                    </div>
+                    <div class="edit-item">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE962763.avif?v=1789133528" alt="Edit Piece 2">
+                    </div>
+                    <div class="edit-item">
+                        <img src="https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004296.avif?v=1789130283" alt="Edit Piece 3">
+                    </div>
+                </div>
+                <div class="edit-cta reveal">
+                    <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" class="btn" target="_blank">Explore the full collection ↗</a>
+                </div>
+            </div>
+        </section>
 
-<footer class="footer">
-  <div class="footer-grid">
-    <div><div class="footer-title">INFORMATION</div><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/shipping-delivery" target="_blank" rel="noopener">Shipping & Delivery</a><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" target="_blank" rel="noopener">About Us</a><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/our-mission" target="_blank" rel="noopener">Our Mission</a><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/contact" target="_blank" rel="noopener">Contact Us</a></div>
-    <div><div class="footer-title">SOCIAL</div><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Pinterest</a></div>
-    <div><div class="footer-title">WORKING HOURS</div><div class="hours"><div><span>Monday – Friday</span><span>10:00 AM – 6:00 PM</span></div><div><span>Saturday</span><span>11:00 AM – 4:00 PM</span></div><div><span>Sunday</span><span>Closed</span></div></div></div>
-    <div><div class="footer-title">NEWS & UPDATES</div><p>Discover new pieces, collections and inspiration for your home.</p><form class="newsletter" id="newsletter"><input type="email" placeholder="Email" aria-label="Email address" required><button aria-label="Subscribe">→</button></form></div>
-  </div>
-  <div class="footer-bottom"><span>© 2026 DECORE</span><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit the full shop →</a></div>
-</footer>
+        <!-- ABOUT -->
+        <section id="about" style="padding: 0;">
+            <div class="split-section">
+                <div class="split-content reveal">
+                    <span class="section-label">About DECORE</span>
+                    <h2>More than a collection.<br>A point of view.</h2>
+                    <p>DECORE brings the best pieces from your favorite brands together in one place. Our purpose is simple: to make discovering beautiful home décor feel inspiring, calm and considered.</p>
+                    <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" class="btn-link" target="_blank">Discover our story →</a>
+                </div>
+                <div class="split-image" style="background-image: url('https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004297.avif?v=1789130283');"></div>
+            </div>
+        </section>
 
-<div class="search-overlay" id="searchOverlay" aria-hidden="true"><button id="searchClose" class="overlay-close" aria-label="Close search">×</button><div class="search-box"><div class="section-kicker">SEARCH DECORE</div><input id="searchInput" type="search" placeholder="Search pieces or categories..." autocomplete="off"><div id="searchResults"></div></div></div>
-<div class="product-modal" id="productModal" aria-hidden="true"><button id="modalClose" class="overlay-close" aria-label="Close product">×</button><div class="modal-inner"><div class="modal-image"><img id="modalImg" src="" alt=""></div><div class="modal-copy"><div class="section-kicker" id="modalCategory"></div><h2 id="modalTitle"></h2><div class="modal-price" id="modalPrice"></div><p id="modalDescription"></p><div class="modal-meta" id="modalMeta"></div><a id="modalShop" class="dark-button" href="#" target="_blank" rel="noopener">View on DECORE Shop →</a></div></div></div>
-<script>
-const PRODUCTS = [{"handle": "lindbyn-1", "title": "LINDBYN", "category": "Mirrors", "vendor": "Michelle", "price": null, "compare": null, "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE836658.avif?v=1789133785", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    LINDBYN Mirror\n   \n\n   \n   \n    A refined black mirror with softly rounded corners and a clean, elegant frame.\n    Its simple design adds depth and visual interest to the room while creating a\n    soft and contemporary expression.\n   \n\n   \n   \n\n     \n       \n        Frame\n       \n       \n        Aluminium\n       \n     \n\n     \n       \n        Mirror\n       \n       \n        Glass, Plastic foil\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Black\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Anodized\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Use the mirror to add depth and make your space feel more open. Its rounded\n      corners and black frame work especially well in minimalist, modern and\n      contemporary interiors.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Frame \n       \n        Aluminium (min. 70% recycled), anodized\n       \n     \n\n     \n       Mirror \n       \n        Glass, plastic foil\n       \n     \n\n     \n     \n       \n        Care\n       \n\n       \n         \n          Frame\n         \n         \n          Wipe clean with a cloth dampened in a mild cleaner.\n         \n         \n          Wipe clean with a dry cloth.\n         \n       \n\n       \n         \n          Mirror glass\n         \n         \n          Wipe clean with a cloth dampened in water or window-cleaner.\n         \n         \n          Wipe clean with a dry cloth.\n         \n       \n\n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "aluminum; glass; plastic", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/lindbyn-1"}, {"handle": "nissedal", "title": "NISSEDAL", "category": "Mirrors", "vendor": "Michelle", "price": "21,000 ֏", "compare": "24,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE949300.avif?v=1789133677", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    White Mirror\n   \n\n   \n   \n    A timeless mirror with a clean white frame that works beautifully in both the\n    bedroom and bathroom. Its versatile design allows it to be hung vertically or\n    horizontally, making it easy to adapt to your space and personal preference.\n   \n\n   \n   \n\n     \n       \n        Frame\n       \n       \n        Fibreboard, Plastic foil\n       \n     \n\n     \n       \n        Mirror\n       \n       \n        Glass, Plastic foil\n       \n     \n\n     \n       \n        Colour\n       \n       \n        White\n       \n     \n\n     \n       \n        Orientation\n       \n       \n        Vertical or horizontal\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Hang it vertically for a classic full-length look or horizontally to create\n      a wider visual effect. Its simple white frame blends effortlessly into\n      minimalist, modern and timeless interiors.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Frame \n       \n        Fibreboard, plastic foil\n       \n     \n\n     \n       Mirror \n       \n        Glass, plastic foil\n       \n     \n\n     \n     \n       \n        Care\n       \n\n       \n         \n          Frame\n         \n         \n          Wipe clean with a cloth dampened in a mild cleaner.\n         \n         \n          Wipe dry with a clean cloth.\n         \n       \n\n       \n         \n          Glass\n         \n         \n          Wipe clean with a cloth dampened in water or window-cleaner.\n         \n         \n          Wipe dry with a clean cloth.\n         \n       \n\n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "plastic; glass", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/nissedal"}, {"handle": "lindbyn", "title": "LINDBYN", "category": "Mirrors", "vendor": "Michelle", "price": "38,000 ֏", "compare": "41,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE962763.avif?v=1789133528", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Rounded Top Mirror\n   \n\n   \n   \n    A stylish mirror with a softly rounded top, a sleek black frame and a clean,\n    elegant design. Its reflective surface adds depth and light to the room, while\n    the versatile design allows it to be hung on the wall or placed on the floor\n    anchored securely to the wall.\n   \n\n   \n   \n\n     \n       \n        Mirror\n       \n       \n        Glass, Plastic foil\n       \n     \n\n     \n       \n        Frame\n       \n       \n        Aluminium\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Black\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Anodized\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Use the mirror to visually expand your space and bring more light into the room.\n      Hang it on the wall for a clean look, or lean it against the wall for a relaxed,\n      contemporary feel.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Mirror \n       \n        Glass, plastic foil\n       \n     \n\n     \n       Frame \n       \n        Aluminium (min. 70% recycled), anodized\n       \n     \n\n     \n       \n        Care\n       \n\n       \n         \n          Mirror glass\n         \n         \n          Wipe clean with a cloth dampened in water or window-cleaner.\n         \n         \n          Wipe dry with a clean cloth.\n         \n       \n\n       \n         \n          Frame\n         \n         \n          Wipe clean with a dry cloth.\n         \n       \n\n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "glass; plastic; aluminum", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/lindbyn"}, {"handle": "glasbjork", "title": "GLASBJÖRK", "category": "Candles", "vendor": "Michelle", "price": "1,500 ֏", "compare": "2,200 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1004296.avif?v=1789130283", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    GLASBJÖRK Unscented Pillar Candle\n   \n\n   \n   \n    An unscented pillar candle in a soft light pink tone, designed to create a warm and inviting glow.\n    The gentle candlelight can add atmosphere to everyday moments, from quiet mornings to intimate\n    dinners and cosy evenings at home.\n   \n\n   \n   \n\n     \n       \n        Fragrance\n       \n       \n        Unscented\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Light pink\n       \n     \n\n     \n       \n        Burn Time\n       \n       \n        30 hours\n       \n     \n\n     \n       \n        Wick\n       \n       \n        100% cotton\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Style it alone for a soft, minimal accent or combine it with candles in different\n      heights and neutral tones to create a warm and layered arrangement.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Candle \n       \n        Paraffin wax, plant based wax (min. 50%)\n       \n     \n\n     \n       Wick \n       \n        100% cotton\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "pink", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/glasbjork"}, {"handle": "juveltrast", "title": "JUVELTRAST", "category": "Candles", "vendor": "Michelle", "price": "3,000 ֏", "compare": "4,700 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1008313.avif?v=1789130149", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    JUVELTRÄST Scented Candle\n   \n\n   \n   \n    A sweet red berry scent that brings a joyful, warm and lively atmosphere to your home.\n    The tinted pink glass adds a soft decorative touch, and once the candle has burned out,\n    the container can be reused as a tealight holder.\n   \n\n   \n   \n\n     \n       \n        Fragrance\n       \n       \n        Red berries\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Pink\n       \n     \n\n     \n       \n        Burn Time\n       \n       \n        50 hours\n       \n     \n\n     \n       \n        Wick\n       \n       \n        Cotton and cellulose-based materials\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      The soft pink glass makes this candle an easy decorative accent for shelves,\n      coffee tables or bedside tables. After burning, reuse the glass container as\n      a tealight holder for an effortless second life.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Candlecup \n       \n        Glass, tinted clear lacquer\n       \n     \n\n     \n       Candle \n       \n        Plant based wax (min. 75%), paraffin wax, fragrance\n       \n     \n\n     \n       Wick \n       \n        Cotton and other cellulose based materials\n       \n     \n\n     \n       \n        Care\n       \n\n       \n        Hardened wax can be removed by washing the surface with warm water.\n       \n\n       \n        Keep in a cool, dry place away from heat sources.\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "pink; red", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/juveltrast"}, {"handle": "lotsfagel", "title": "LOTSFÅGEL", "category": "Candles", "vendor": "Michelle", "price": "2,500 ֏", "compare": "4,700 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1002213.avif?v=1789118590", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    LOTSFÅGEL Scented Candle\n   \n\n   \n   \n    A familiar vanilla scent that creates a calm, warm and comforting atmosphere. \n    This three-wick scented candle comes in a pale beige glass holder, allowing the \n    candle itself to become part of your décor while adding a soft and inviting fragrance to the room.\n   \n\n   \n   \n\n     \n       \n        Fragrance\n       \n       \n        Vanilla\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Pale beige\n       \n     \n\n     \n       \n        Burn Time\n       \n       \n        25 hours\n       \n     \n\n     \n       \n        Wick\n       \n       \n        3 wicks\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      The pale beige tone blends effortlessly with neutral interiors. Place it on a \n      coffee table, bedside table or shelf to add a warm decorative touch while the \n      vanilla fragrance creates a cosy atmosphere.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Candlecup \n       \n        Glass\n       \n     \n\n     \n       Candle \n       \n        Plant based wax (min. 75%), paraffin wax, fragrance\n       \n     \n\n     \n       Wick \n       \n        Cotton and other cellulose based materials\n       \n     \n\n     \n       \n        Care\n       \n\n       \n        Hardened wax can be removed by washing the surface with warm water.\n       \n\n       \n        Keep in a cool, dry place away from heat sources.\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "beige", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/lotsfagel"}, {"handle": "kornsparv", "title": "KORNSPARV", "category": "Vases", "vendor": "Michelle", "price": "8,500 ֏", "compare": "10,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1011018.avif?v=1789118193", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Grey-Blue Vase\n   \n\n   \n   \n    A distinctive vase finished with a reactive glaze that creates shifting colours \n    and shades, giving every piece a unique expression. Its sculptural character makes \n    it just as beautiful displayed on its own as it is styled with a few flowers or a green twig.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Stoneware\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Pigmented reactive glaze\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Grey-blue\n       \n     \n\n     \n       \n        Care\n       \n       \n        Hand wash only\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Display the vase alone to let its unique glaze and changing tones take centre stage, \n      or add a few flowers or a green twig for a simple, natural arrangement.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Main material \n       \n        Stoneware\n       \n     \n\n     \n       Finish \n       \n        Pigmented glaze\n       \n     \n\n     \n       \n        Care\n       \n\n       \n        Hand wash only.\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "blue; gray", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/kornsparv"}, {"handle": "glansgran", "title": "GLANSGRAN", "category": "Vases", "vendor": "Michelle", "price": "8,500 ֏", "compare": "10,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1010727.avif?v=1789118058", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    GLANSGRAN Vase\n   \n\n   \n   \n    A sculptural vase in a beautiful light green tone, finished with a reactive glaze \n    that creates unique colours and shifting surfaces. No two vases are exactly alike, \n    making GLANSGRAN a decorative eye-catcher with or without flowers.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Stoneware\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Reactive coloured glaze\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Light green\n       \n     \n\n     \n       \n        Care\n       \n       \n        Hand wash only\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Display it on its own to highlight its unique glaze and rounded form, or add \n      flowers for a softer arrangement. Its light green tone works beautifully with \n      neutral, natural and contemporary interiors.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Main material \n       \n        Stoneware\n       \n     \n\n     \n       Finish \n       \n        Coloured glaze\n       \n     \n\n     \n       \n        Care\n       \n\n       \n        Recommended to hand wash only.\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/glansgran"}, {"handle": "parlhagg", "title": "PÄRLHÄGG", "category": "Vases", "vendor": "Michelle", "price": "4,500 ֏", "compare": "6,700 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/paerlhaegg-vase-brown-red__1529907_pe1014680_s5.avif?v=1789062682", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Brown-Red Vase\n   \n\n   \n   \n    A decorative vase with boldly rounded lines and a rich, autumn-inspired brown-red tone. \n    The narrow opening gathers bouquets beautifully and brings out the best in your flowers, \n    while its sculptural shape makes it a decorative object in its own right.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Stoneware\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Coloured glaze\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Brown-red\n       \n     \n\n     \n       \n        Care\n       \n       \n        Hand wash only\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Let the sculptural silhouette stand alone as a statement piece, or use the narrow \n      opening to create a refined bouquet arrangement. The warm brown-red tone works \n      beautifully with natural and autumn-inspired interiors.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Main material \n       \n        Stoneware\n       \n     \n\n     \n       Finish \n       \n        Coloured glaze\n       \n     \n\n     \n       \n        Care\n       \n\n       \n        Recommended to hand wash only.\n       \n     \n\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "ceramic", "color": "brown", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/parlhagg"}, {"handle": "large-mango-wood-mirror", "title": "Large mango wood mirror", "category": "Mirrors", "vendor": "Michelle", "price": "19,500 ֏", "compare": "22,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/508355074f272ef5def699bcd79a0fbdfd5e9708.avif?v=1789032742", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Asymmetrical Mango Wood Mirror\n   \n\n   \n   \n    Large wall mirror framed in mango wood with a distinctive asymmetrical silhouette. \n    The natural character of the wood brings warmth and depth to the design, while the \n    versatile hanging system allows the mirror to be mounted either horizontally or vertically.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Mango wood, Glass, MDF\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Solid colour\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Dark brown\n       \n     \n\n     \n       \n        Shape\n       \n       \n        Irregular\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Let the organic silhouette become a focal point in your living room, bedroom, \n      or hallway. Hang it horizontally or vertically to complement your space and create \n      a more personal composition.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Glass \n       \n        100%\n       \n     \n\n     \n       Mango wood \n       \n        100%\n       \n     \n\n     \n       Back \n       \n        MDF 100%\n       \n     \n\n     \n       Material category \n       \n        Wood\n       \n     \n\n     \n       \n        Materials in this product explained\n       \n\n       \n         MDF  — Medium Density Fibreboard is made from softwood or hardwood fibres combined with binders and wax. A pressure process turns the fibres into smooth boards.\n       \n\n       \n         Glass  — A solid material mainly made from sand treated at very high temperature, then cooled and hardened into its final shape.\n       \n\n       \n         Mango wood  — A hard, dense wood obtained from the mango tree.\n       \n     \n\n   \n\n   \n   \n    PRODUCT CODE · 1213141001\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/large-mango-wood-mirror"}, {"handle": "metal-mirror", "title": "Metal mirror", "category": "Mirrors", "vendor": "Michelle", "price": "73,000 ֏", "compare": "78,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/b4717497b72e293ad259110e38130fb3b8337c37.avif?v=1789032378", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Rounded Edge Metal Mirror\n   \n\n   \n   \n    New Arrival\n   \n\n   \n   \n    Mirror with a polished metal frame featuring a rectangular silhouette with softly rounded edges. The clean metallic finish and simple form create a contemporary statement that works beautifully in modern living spaces.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Aluminium, Glass, MDF\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Polished metal\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Silver-coloured\n       \n     \n\n     \n       \n        Shape\n       \n       \n        Oval\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Use this mirror as a refined focal point in a living room, hallway, or bedroom. \n      Its rounded edges and polished frame add softness while keeping the overall look clean and contemporary.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Frame \n       \n        Aluminium 100%\n       \n     \n\n     \n       Front \n       \n        Glass 100%\n       \n     \n\n     \n       Back shell \n       \n        MDF 100%\n       \n     \n\n     \n       Material category \n       \n        Metal\n       \n     \n\n     \n       \n        Materials in this product explained\n       \n\n       \n         Aluminium  — A metallic chemical element with a naturally silvery colour.\n       \n\n       \n         MDF  — Medium Density Fibreboard is made from softwood or hardwood fibres combined with binders and wax. A pressure process turns the fibres into smooth boards.\n       \n\n       \n         Glass  — A solid material mainly made from sand treated at very high temperature, then cooled and hardened into its final shape.\n       \n     \n\n   \n\n   \n   \n    PRODUCT CODE · 1339007001\n   \n\n \n\n \n@media (max-width:600px){\n  div[style*=\"grid-template-columns:1fr 1fr\"]{\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/metal-mirror"}, {"handle": "large-curvy-mirror", "title": "Large Curvy Mirror", "category": "Mirrors", "vendor": "Michelle", "price": "112,000 ֏", "compare": "124,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/6d259c0cbdd08a396d80815ace8ee6f002ebd43a.avif?v=1789031630", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Wavy Edge Leaner Mirror\n   \n\n   \n   \n    A statement full-length mirror featuring a uniquely designed wavy edge. \n    Its organic, contoured frame adds an artistic and modern touch to your space, \n    creating an eye-catching focal point in living rooms, bedrooms, and hallways. \n    Designed to be styled either as a leaner or wall-hung, it offers flexibility \n    for different interiors and layouts.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        MDF, Glass\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Solid colour\n       \n     \n\n     \n       \n        Colour\n       \n       \n        Off White\n       \n     \n\n     \n       \n        Shape\n       \n       \n        Rectangular\n       \n     \n\n   \n\n   \n   \n     \n      Styling Note\n     \n     \n      Lean it against a wall for a relaxed, contemporary look, or hang it to create \n      a more defined focal point. The wavy silhouette pairs beautifully with both \n      minimalist and eclectic interiors.\n     \n   \n\n   \n   \n\n     \n      Materials\n     \n\n     \n       Composition \n       \n        MDF 60%, Glass 40%\n       \n     \n\n     \n       Material \n       \n        Wood\n       \n     \n\n     \n       \n        Materials in this product explained\n       \n\n       \n         MDF  — Medium Density Fibreboard is a material made from softwood or hardwood fibres combined with binders and wax. A pressure process turns the fibres into smooth boards.\n       \n\n       \n         Glass  — A solid material mainly made from sand treated at very high temperature, then cooled and hardened into its final shape.\n       \n     \n\n   \n\n   \n   \n    PRODUCT CODE · 1360042001\n   \n\n \n\n \n@media (max-width: 600px) {\n  div[style*=\"grid-template-columns:1fr 1fr\"] {\n    grid-template-columns:1fr !important;\n  }\n}", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/large-curvy-mirror"}, {"handle": "scented-candle-in-glass-holder-2", "title": "Scented candle in glass holder", "category": "Candles", "vendor": "Michelle", "price": "7,500 ֏", "compare": "10,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/f3a79ccf5f5e43f25b79996bec5ac034319dcb70.avif?v=1789030855", "description": "DECORE / HOME EDIT\n   \n\n   \n    Scented Candle\n   \n\n   \n    Scented candle in a patterned glass holder that can be repurposed as an elegant storage once the candle has burnt out. The fragrance has been created in collaboration with perfumers from the renowned Robertet perfume house. Burn time approximately 30 hours.\n   \n\n   \n\n     \n       \n        Material\n       \n       \n        Glass\n       \n     \n\n     \n       \n        Fragrance\n       \n       \n        Vanilla Patchouli\n       \n     \n\n     \n       \n        Fragrance Family\n       \n       \n        Floral\n       \n     \n\n     \n       \n        Color\n       \n       \n        Light beige\n       \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      A warm and elegant touch for your space.\n     \n\n     \n      Place it on a coffee table, console, or bedside table to create a soft, inviting atmosphere, then repurpose the glass holder once the candle has burnt out.\n     \n\n   \n\n   \n\n     \n      Materials\n     \n\n     \n       \n        Container\n       \n       \n        Glass 100%\n       \n     \n\n     \n       \n        Content\n       \n       \n        Wax 100%\n       \n     \n\n     \n\n       \n        Materials in this product explained\n       \n\n       \n         Glass  is a solid material mainly made out of sand treated at very high temperature, turned into a liquid and hardened to reach its final shape.\n       \n\n       \n         Wax  is a diverse material class. Waxes can derive from animals and plants as well as petroleum.\n       \n\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      0696742029", "material": "", "color": "beige; geometric", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/scented-candle-in-glass-holder-2"}, {"handle": "scented-candle-in-glass-holder-1", "title": "Scented candle in glass holder", "category": "Candles", "vendor": "Michelle", "price": null, "compare": null, "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/ea86d0a73a526203255ef8628c535acbcc689fcf.avif?v=1789030006", "description": "DECORE / HOME EDIT\n   \n\n   \n    NEW ARRIVAL\n   \n\n   \n    Scented Candle\n   \n\n   \n    Scented candle in a patterned glass holder that can be repurposed as an elegant storage once the candle has burnt out. The fragrance has been created in collaboration with perfumers from the renowned Robertet perfume house. Burn time approximately 30 hours.\n   \n\n   \n\n     \n       \n        Fragrance\n       \n       \n        Cashmere Cloud\n       \n     \n\n     \n       \n        Fragrance Family\n       \n       \n        Fresh\n       \n     \n\n     \n       \n        Color\n       \n       \n        Light pink / Dusty pink\n       \n     \n\n     \n       \n        Burn Time\n       \n       \n        Approximately 30 hours\n       \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      A soft fragrance and elegant accent for your home.\n     \n\n     \n      Place it on a coffee table, console, or bedside table and repurpose the patterned glass holder once the candle has burnt out.\n     \n\n   \n\n   \n\n     \n      Materials\n     \n\n     \n       \n        Container\n       \n       \n        Glass 100%\n       \n     \n\n     \n       \n        Content\n       \n       \n        Wax 100%\n       \n     \n\n     \n\n       \n        Materials in this product explained\n       \n\n       \n         Wax  is a diverse material class. Waxes can derive from animals and plants as well as petroleum.\n       \n\n       \n         Glass  is a solid material mainly made out of sand treated at very high temperature, turned into a liquid and hardened to reach its final shape.\n       \n\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      0696742032", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/scented-candle-in-glass-holder-1"}, {"handle": "scented-candle-in-glass-holder", "title": "Scented candle in glass holder", "category": "Candles", "vendor": "Michelle", "price": "2,500 ֏", "compare": "4,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/b7b98585fba1b00afedfc975ea69b5d446a6a092_5d56b5dc-0fcd-4544-8692-6bade1f26496.avif?v=1789028842", "description": "DECORE / HOME EDIT\n   \n\n   \n    Scented Candle\n   \n\n   \n    Scented candle in a glass holder with a pine wood lid. Burn time 18 hours.\n   \n\n   \n\n     \n       \n        Material\n       \n       \n        Glass, Rapeseed wax, Pine\n       \n     \n\n     \n       \n        Fragrance\n       \n       \n        Sublime Patchouli\n       \n     \n\n     \n       \n        Color\n       \n       \n        Beige\n       \n     \n\n     \n       \n        Burn Time\n       \n       \n        18 hours\n       \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Add a soft, fragrant touch to your space.\n     \n\n     \n      Place it on a coffee table, console, or bedside table to create a warm and inviting atmosphere.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      1317850001", "material": "", "color": "clear", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/scented-candle-in-glass-holder"}, {"handle": "small-textured-glass-bud-vase", "title": "Small textured-glass bud vase", "category": "Vases", "vendor": "Michelle", "price": "3,500 ֏", "compare": "5,500 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/4a69a4cb920658a9b727cb35a0f8e9dc2ac53728.avif?v=1788976162", "description": "DECORE / HOME EDIT\n   \n\n   \n    Glass Bud Vase\n   \n\n   \n    Small bud vase in textured glass.\n   \n\n   \n\n     \n       \n        Material\n       \n       \n        Glass\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Textured\n       \n     \n\n     \n       \n        Color\n       \n       \n        Light brown\n       \n     \n\n     \n       \n        Size\n       \n       \n        Mini\n       \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      A delicate accent for small moments.\n     \n\n     \n      Place it on a shelf, bedside table, or console with a single stem to highlight its textured glass finish.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      1319191001", "material": "glass", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/small-textured-glass-bud-vase"}, {"handle": "large-terracotta-vase", "title": "Large terracotta vase", "category": "Vases", "vendor": "Michelle", "price": "12,500 ֏", "compare": "15,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/4176e265ffab684302c92b69694e128514dba961.avif?v=1788975612", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Terracotta Vase\n   \n\n   \n   \n    Large vase in terracotta with a rounded, sculptural design.\n    Finished with a glossy, crackled glaze that gives each piece a unique appearance.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Terracotta, Ceramic\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Glossy, crackled glaze\n       \n     \n\n     \n       \n        Color\n       \n       \n        Cream\n       \n     \n\n     \n       \n        Size\n       \n       \n        Large\n       \n     \n\n   \n\n   \n   \n\n     \n      Styling Note\n     \n\n     \n      Let its sculptural silhouette take center stage.\n     \n\n     \n      Style it with dried branches or leave it empty to highlight its rounded form and distinctive crackled finish.\n     \n\n   \n\n   \n   \n\n     \n      Product Code\n     \n\n     \n      1353305001", "material": "ceramic", "color": "beige", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/large-terracotta-vase"}, {"handle": "large-stoneware-vase", "title": "Large stoneware vase", "category": "Vases", "vendor": "Michelle", "price": "12,500 ֏", "compare": "15,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/586b7a5c4bb705bc61211fe59f593a7943ee878a.avif?v=1788973307", "description": "DECORE / HOME EDIT\n   \n\n   \n   \n    Ceramic Vase\n   \n\n   \n   \n    A large stoneware vase with a tapered silhouette and a wide, flared top rim.\n    Finished with a glossy, reactive glaze that gives each piece a unique appearance.\n   \n\n   \n   \n\n     \n       \n        Material\n       \n       \n        Ceramic, Stoneware\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Glossy, reactive glaze\n       \n     \n\n     \n       \n        Color\n       \n       \n        Dark brown\n       \n     \n\n     \n       \n        Size\n       \n       \n        Large\n       \n     \n\n   \n\n   \n   \n\n     \n      Styling Note\n     \n\n     \n      Let its sculptural silhouette become the focal point.\n     \n\n     \n      Style it with dried branches or leave it empty to highlight its shape and glossy finish.\n     \n\n   \n\n   \n   \n\n     \n      Product Code\n     \n\n     \n      1351802001", "material": "ceramic", "color": "brown", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/large-stoneware-vase"}, {"handle": "cylindrical-ceramic-vase", "title": "CYLINDRICAL CERAMIC VASE", "category": "Vases", "vendor": "Michelle", "price": "17,900 ֏", "compare": "22,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1378.webp?v=1785954698", "description": "DECORE / HOME EDIT\n     \n\n     \n      Ceramic Vase\n     \n\n     \n      A timeless ceramic vase with a clean cylindrical silhouette and an antique finish,\n      designed to bring subtle character to your space.\n     \n   \n\n\n   \n\n     \n       \n        Material\n       \n       \n        Ceramic\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Antique\n       \n     \n\n     \n       \n        Color\n       \n       \n        Ecru\n       \n     \n\n     \n       \n        Water\n       \n       \n        Suitable\n       \n     \n\n   \n\n\n   \n\n     \n      Styling Note\n     \n\n     \n      Keep it minimal or make it the focal point.\n     \n\n     \n      Fill it with fresh flowers or dried branches,\n      or let its sculptural silhouette speak for itself.\n     \n\n   \n\n\n   \n\n     \n      Product Code\n     \n\n     \n      ECRU · 6195/046/712", "material": "ceramic", "color": "beige", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/cylindrical-ceramic-vase"}, {"handle": "rough-effect-ceramic-vase", "title": "ROUGH-EFFECT CERAMIC VASE", "category": "Vases", "vendor": "Michelle", "price": "32,900 ֏", "compare": "36,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1372.webp?v=1785953398", "description": "DECORE / HOME EDIT\n     \n\n     \n      Tall Ceramic Vase\n     \n\n     \n      A tall ceramic vase with a distinctive rough-effect finish,\n      bringing texture and understated character to your space.\n     \n   \n\n\n   \n\n     \n       \n        Material\n       \n       \n        Ceramic\n       \n     \n\n     \n       \n        Finish\n       \n       \n        Rough Effect\n       \n     \n\n     \n       \n        Color\n       \n       \n        Grey\n       \n     \n\n     \n       \n        Water\n       \n       \n        Suitable\n       \n     \n\n   \n\n\n   \n\n     \n      Styling Note\n     \n\n     \n      Let texture take the lead.\n     \n\n     \n      Its tall silhouette and rough-effect finish make it a striking accent\n      on its own or styled with fresh flowers and dried branches.\n     \n\n   \n\n\n   \n\n     \n      Product Code\n     \n\n     \n      GREY · 7321/043/802", "material": "ceramic", "color": "beige; white; gray", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/rough-effect-ceramic-vase"}, {"handle": "decorative-round-ceramic-vase", "title": "DECORATIVE ROUND CERAMIC VASE", "category": "Vases", "vendor": "Michelle", "price": "32,900 ֏", "compare": "35,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1367.webp?v=1785951809", "description": "DECORE / HOME EDIT\n     \n\n     \n      Ribbed Ceramic Vase\n     \n\n     \n      A compact round ceramic vase featuring a narrow opening and a distinctive\n      ribbed vertical design, perfect for displaying delicate stems and branches.\n     \n   \n\n\n   \n\n     \n       \n        Material\n       \n       \n        Ceramic\n       \n     \n\n     \n       \n        Design\n       \n       \n        Ribbed Vertical\n       \n     \n\n     \n       \n        Color\n       \n       \n        Bone\n       \n     \n\n     \n       \n        Water\n       \n       \n        Suitable\n       \n     \n\n   \n\n\n   \n\n     \n      Styling Note\n     \n\n     \n      Designed for delicate stems.\n     \n\n     \n      The narrow opening beautifully frames thin-stem flowers and branches,\n      while the rounded silhouette and ribbed texture add subtle visual interest.\n     \n\n   \n\n\n   \n\n     \n      Product Code\n     \n\n     \n      BONE · 0373/046/779", "material": "ceramic", "color": "beige; white", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/decorative-round-ceramic-vase"}, {"handle": "small-enamelled-striped-ceramic-vase", "title": "SMALL ENAMELLED STRIPED CERAMIC VASE", "category": "Vases", "vendor": "Michelle", "price": "8,900 ֏", "compare": "12,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1362.webp?v=1785951402", "description": "DECORE / HOME EDIT\n     \n\n     \n      Mini Ribbed Ceramic Vase\n     \n\n     \n      Mini ceramic vase with a puffed body and raised vertical stripe design. May be filled with water.\n     \n   \n\n   \n\n     \n       \n        Material\n       \n       Ceramic \n     \n\n     \n       \n        Design\n       \n       Raised Vertical Stripes \n     \n\n     \n       \n        Color\n       \n       Cream \n     \n\n     \n       \n        Water\n       \n       Suitable \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Small in size, rich in texture.\n     \n\n     \n      Let its rounded shape and raised texture add a subtle sculptural touch to shelves, side tables, or small corners.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      CREAM · 0370/046/733", "material": "ceramic", "color": "striped", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/small-enamelled-striped-ceramic-vase"}, {"handle": "mirror-with-silver-border", "title": "MIRROR WITH SILVER BORDER", "category": "Mirrors", "vendor": "Michelle", "price": "45,900 ֏", "compare": "49,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1354.webp?v=1785951084", "description": "DECORE / HOME EDIT\n     \n\n     \n      Vintage Rectangular Mirror\n     \n\n     \n      Rectangular mirror with a silver-toned bevelled frame and vintage-inspired design. Designed with four anchor points for both horizontal and vertical placement.\n     \n   \n\n   \n\n     \n       \n        Type\n       \n       Rectangular Mirror \n     \n\n     \n       \n        Frame\n       \n       Silver-toned Bevelled \n     \n\n     \n       \n        Design\n       \n       Vintage \n     \n\n     \n       \n        Placement\n       \n       Horizontal / Vertical \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      A timeless statement for any wall.\n     \n\n     \n      Its vintage-inspired frame adds character while the versatile placement allows it to work beautifully above a console, dresser, or in a hallway.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      SILVER · 8524/106/808", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/mirror-with-silver-border"}, {"handle": "wall-mirror-with-round-frame", "title": "WALL MIRROR WITH ROUND FRAME", "category": "Mirrors", "vendor": "Michelle", "price": "39,900 ֏", "compare": "43,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1349.webp?v=1785950929", "description": "DECORE / HOME EDIT\n     \n\n     \n      Rounded Rectangular Wall Mirror\n     \n\n     \n      Rectangular wall mirror with a silver frame and rounded finish. Designed with four anchor points for both horizontal and vertical placement.\n     \n   \n\n   \n\n     \n       \n        Type\n       \n       Wall Mirror \n     \n\n     \n       \n        Frame\n       \n       Silver \n     \n\n     \n       \n        Finish\n       \n       Rounded \n     \n\n     \n       \n        Placement\n       \n       Horizontal / Vertical \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Soft lines, timeless character.\n     \n\n     \n      The rounded finish softens the clean rectangular shape, making it an elegant addition to hallways, bedrooms, or above a console.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      GREY · 7525/106/851", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/wall-mirror-with-round-frame"}, {"handle": "small-asymmetric-wall-mirror", "title": "SMALL ASYMMETRIC WALL MIRROR", "category": "Mirrors", "vendor": "Michelle", "price": "45,900 ֏", "compare": "49,000 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1343.webp?v=1785950790", "description": "DECORE / HOME EDIT\n     \n\n     \n      Irregular Wall Mirror\n     \n\n     \n      Small irregular-shaped wall mirror with a black frame. Features four attachment points for both horizontal and vertical placement.\n     \n   \n\n   \n\n     \n       \n        Type\n       \n       Wall Mirror \n     \n\n     \n       \n        Frame\n       \n       Black \n     \n\n     \n       \n        Shape\n       \n       Irregular \n     \n\n     \n       \n        Placement\n       \n       Horizontal / Vertical \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Let the shape make the statement.\n     \n\n     \n      Its compact size and organic silhouette make it an easy way to add character to a small wall, hallway, bedroom, or decorative corner.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      TRANSPARENT · 9930/106/990", "material": "", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/small-asymmetric-wall-mirror"}, {"handle": "round-full-length-mirror-with-frame", "title": "ROUND FULL LENGTH MIRROR WITH FRAME", "category": "Mirrors", "vendor": "Michelle", "price": "69,900 ֏", "compare": "74,900 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1337.webp?v=1785950563", "description": "DECORE / HOME EDIT\n     \n\n     \n      Full-Length Oak Wood Mirror\n     \n\n     \n      Full-length mirror with a natural oak wood frame. Designed to be securely attached to the wall using suitable screws and the hinges on the back.\n     \n   \n\n   \n\n     \n       \n        Type\n       \n       Full-Length Mirror \n     \n\n     \n       \n        Frame\n       \n       Oak Wood \n     \n\n     \n       \n        Color\n       \n       Light Beige \n     \n\n     \n       \n        Mounting\n       \n       Wall Mounted \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Natural warmth, from floor to ceiling.\n     \n\n     \n      The oak wood frame brings warmth and a natural touch to bedrooms, dressing areas, hallways, and other everyday spaces.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      LIGHT BEIGE · 3130/106/052", "material": "wood", "color": "", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/round-full-length-mirror-with-frame"}, {"handle": "decorative-textured-candle", "title": "DECORATIVE TEXTURED CANDLE", "category": "Candles", "vendor": "Michelle", "price": "8,900 ֏", "compare": "11,900 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1330.webp?v=1785949544", "description": "DECORE / HOME EDIT\n     \n\n     \n      Textured Ceramic Candle\n     \n\n     \n      Decorative candle set in a textured ceramic candleholder with a matte finish. Designed to bring subtle texture and warmth to your space.\n     \n   \n\n   \n\n     \n       \n        Material\n       \n       Ceramic \n     \n\n     \n       \n        Finish\n       \n       Matte \n     \n\n     \n       \n        Color\n       \n       White \n     \n\n     \n       \n        Burn Time\n       \n       Approx. 25 hours \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Texture that glows beautifully.\n     \n\n     \n      Place it on a coffee table, shelf, or dining table to add a soft sculptural touch, whether lit or simply displayed.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      WHITE · 4517/065/250", "material": "", "color": "white", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/decorative-textured-candle"}, {"handle": "decorative-green-droplet-candle", "title": "DECORATIVE GREEN DROPLET CANDLE", "category": "Candles", "vendor": "Michelle", "price": "8,900 ֏", "compare": "12,900 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1324.webp?v=1785949123", "description": "DECORE / HOME EDIT\n     \n\n     \n      Organic Droplet Candle\n     \n\n     \n      Decorative green wax candle shaped like an organic droplet, with a smooth surface, subtle irregularities, a stable base, and a centred wick. Finished with a uniform matte texture.\n     \n   \n\n   \n\n     \n       \n        Material\n       \n       Wax \n     \n\n     \n       \n        Shape\n       \n       Organic Droplet \n     \n\n     \n       \n        Finish\n       \n       Matte \n     \n\n     \n       \n        Burn Time\n       \n       Approx. 40 hours \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      A sculptural touch in a natural form.\n     \n\n     \n      Its organic silhouette and soft matte finish make it a statement piece on coffee tables, shelves, consoles, or dining tables.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      GREEN · 6366/065/500", "material": "", "color": "green", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/decorative-green-droplet-candle"}, {"handle": "decorative-beige-candle", "title": "DECORATIVE BEIGE CANDLE", "category": "Candles", "vendor": "Michelle", "price": "10,900 ֏", "compare": "13,900 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1319.webp?v=1785948908", "description": "DECORE / HOME EDIT\n     \n\n     \n      Large Cylindrical Decorative Candle\n     \n\n     \n      Large cylindrical decorative candle made of wax with soft irregular edges and a smooth finish. Available in two sizes.\n     \n   \n\n   \n\n     \n       \n        Material\n       \n       Wax \n     \n\n     \n       \n        Shape\n       \n       Cylindrical \n     \n\n     \n       \n        Finish\n       \n       Smooth \n     \n\n     \n       \n        Burn Time\n       \n       Approx. 35 hours \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Soft edges, simple presence.\n     \n\n     \n      Its clean cylindrical form and subtle irregular edges add understated texture to coffee tables, shelves, consoles, or dining settings.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      CREAM · 3365/065/733", "material": "", "color": "beige", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/decorative-beige-candle"}, {"handle": "long-decorative-cylindrical-candle", "title": "LONG DECORATIVE CYLINDRICAL CANDLE", "category": "Candles", "vendor": "Mishel Harutyunyan", "price": "8,900 ֏", "compare": "11,900 ֏", "image": "https://cdn.shopify.com/s/files/1/0823/0515/5305/files/IMG_1313.webp?v=1785948073", "description": "DECORE / HOME EDIT\n     \n\n     \n      Cylindrical Wax Candle\n     \n\n     \n      Cylindrical wax candle available in two sizes. Designed to fit perfectly inside lanterns.\n     \n   \n\n   \n\n     \n       \n        Material\n       \n       Wax \n     \n\n     \n       \n        Shape\n       \n       Cylindrical \n     \n\n     \n       \n        Diameter\n       \n       9 cm \n     \n\n     \n       \n        Burn Time\n       \n       Approx. 100 hours \n     \n\n   \n\n   \n\n     \n      Styling Note\n     \n\n     \n      Made for a warm, atmospheric glow.\n     \n\n     \n      Designed for lanterns, this classic candle brings a soft and timeless touch to indoor and outdoor settings.\n     \n\n   \n\n   \n\n     \n      Product Code\n     \n\n     \n      CREAM · 6335/065/733", "material": "", "color": "beige", "shopUrl": "https://mishel-harutyunyan-p0w2g0uq.myshopify.com/products/long-decorative-cylindrical-candle"}];
-const shopBase='https://mishel-harutyunyan-p0w2g0uq.myshopify.com';
-const grid=document.getElementById('productGrid');
-const header=document.getElementById('header');
-const modal=document.getElementById('productModal');
-const searchOverlay=document.getElementById('searchOverlay');
-function escapeHtml(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function escapeAttr(s=''){return escapeHtml(s)}
-function renderProducts(filter='All'){
-  const list=filter==='All'?PRODUCTS:PRODUCTS.filter(p=>p.category===filter);
-  grid.innerHTML=list.slice(0,8).map(p=>`<article class="product-card" data-handle="${escapeAttr(p.handle)}"><div class="product-image"><img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.title)}" loading="lazy">${p.compare?'<span class="product-badge">Selected</span>':''}</div><div class="product-info"><div class="product-brand">${escapeHtml(p.vendor)}</div><div class="product-name">${escapeHtml(p.title)}</div><div class="product-price">${escapeHtml(p.price||'View in shop')}${p.compare?` <del>${escapeHtml(p.compare)}</del>`:''}</div></div></article>`).join('');
-  grid.querySelectorAll('.product-card').forEach(card=>card.addEventListener('click',()=>openProduct(card.dataset.handle)));
-}
-function openProduct(handle){const p=PRODUCTS.find(x=>x.handle===handle);if(!p)return;document.getElementById('modalImg').src=p.image;document.getElementById('modalImg').alt=p.title;document.getElementById('modalCategory').textContent=p.category+' · '+p.vendor;document.getElementById('modalTitle').textContent=p.title;document.getElementById('modalPrice').innerHTML=escapeHtml(p.price||'See current price on shop')+(p.compare?` <del>${escapeHtml(p.compare)}</del>`:'');document.getElementById('modalDescription').textContent=(p.description||'Discover this selected piece on the full DECORE shop.').replace(/\s+/g,' ').trim().slice(0,850);document.getElementById('modalMeta').textContent=[p.material&&`Material: ${p.material}`,p.color&&`Color: ${p.color}`].filter(Boolean).join(' · ');document.getElementById('modalShop').href=p.shopUrl;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}
-function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')}
-document.getElementById('modalClose').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProducts(b.dataset.filter);document.getElementById('edit').scrollIntoView({behavior:'smooth',block:'start'})}));
-document.querySelectorAll('[data-filter-link]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const f=a.dataset.filterLink;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter===f));renderProducts(f);document.getElementById('edit').scrollIntoView({behavior:'smooth'})}));
-function updateHeader(){header.classList.toggle('scrolled',window.scrollY>80)}window.addEventListener('scroll',updateHeader,{passive:true});updateHeader();
-const desktopMenu=document.getElementById('desktopMenu');
-document.getElementById('menuBtn').addEventListener('click',()=>{if(window.innerWidth<=750){const panel=document.getElementById('mobilePanel');panel.classList.add('open');panel.setAttribute('aria-hidden','false');document.getElementById('menuBtn').setAttribute('aria-expanded','true');document.body.classList.add('no-scroll')}else{desktopMenu.classList.add('open');desktopMenu.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}});
-document.getElementById('desktopMenuClose').addEventListener('click',()=>{desktopMenu.classList.remove('open');desktopMenu.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')});
-desktopMenu.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{desktopMenu.classList.remove('open');desktopMenu.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')}));
-const panel=document.getElementById('mobilePanel');
-document.getElementById('panelClose').addEventListener('click',()=>{panel.classList.remove('open');panel.setAttribute('aria-hidden','true');document.getElementById('menuBtn').setAttribute('aria-expanded','false');document.body.classList.remove('no-scroll')});
-panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{panel.classList.remove('open');document.body.classList.remove('no-scroll')}));
-const searchInput=document.getElementById('searchInput'),results=document.getElementById('searchResults');
-document.getElementById('searchBtn').addEventListener('click',()=>{searchOverlay.classList.add('open');searchOverlay.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll');setTimeout(()=>searchInput.focus(),100)});
-document.getElementById('searchClose').addEventListener('click',()=>{searchOverlay.classList.remove('open');searchOverlay.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')});
-searchInput.addEventListener('input',()=>{const q=searchInput.value.trim().toLowerCase();if(!q){results.innerHTML='';return}const found=PRODUCTS.filter(p=>(p.title+' '+p.category+' '+p.vendor+' '+p.description).toLowerCase().includes(q)).slice(0,10);results.innerHTML=found.length?found.map(p=>`<div class="search-result" data-handle="${escapeAttr(p.handle)}"><span>${escapeHtml(p.title)}</span><span>${escapeHtml(p.category)}</span></div>`).join(''):'<div class="search-result"><span>No matching pieces found.</span></div>';results.querySelectorAll('[data-handle]').forEach(x=>x.addEventListener('click',()=>{searchOverlay.classList.remove('open');openProduct(x.dataset.handle)}))});
-document.getElementById('newsletter').addEventListener('submit',e=>{e.preventDefault();const input=e.currentTarget.querySelector('input');e.currentTarget.querySelector('button').textContent='✓';input.value='';input.placeholder='Thank you for joining DECORE'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();searchOverlay.classList.remove('open');desktopMenu.classList.remove('open');panel.classList.remove('open');document.body.classList.remove('no-scroll')}});
-renderProducts();
+        <!-- INSPIRATION -->
+        <section id="inspiration" style="padding: 0;">
+            <div class="split-section">
+                <div class="split-image" style="background-image: url('https://cdn.shopify.com/s/files/1/0823/0515/5305/files/PE1008313.avif?v=1789130149');"></div>
+                <div class="split-content reveal">
+                    <span class="section-label">Inspiration</span>
+                    <h2>The secret to a more beautiful home? Look at the details.</h2>
+                    <p>A vase, a candle, a mirror — small choices can change the feeling of an entire room. Explore the ideas, combinations and details that shape the DECORE point of view.</p>
+                    <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/blogs/news/decorative-candles-the-small-detail-that-changes-everything" class="btn-link" target="_blank">Read the story →</a>
+                </div>
+            </div>
+        </section>
 
-</script>
-</body></html>
+        <!-- FULL COLLECTION CTA -->
+        <section class="full-cta">
+            <div class="container reveal">
+                <span class="section-label">The Full DECORE Collection</span>
+                <h2>Find the pieces that<br>feel like home.</h2>
+                <p>Discover the complete selection on the DECORE shop.</p>
+                <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" class="btn" target="_blank">Visit DECORE Shop ↗</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <p class="footer-top-label">A home, thoughtfully collected</p>
+                <div class="footer-logo">DECORE</div>
+                <p class="footer-tagline">Curated. Considered. Chosen for you.</p>
+                <p>Find the pieces that feel like home. Discover a curated selection of timeless home décor, inspiring brands and unique collections.</p>
+                <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" class="btn" style="border-color: #fff; color: #fff;" target="_blank">Visit DECORE Shop ↗</a>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/shipping-delivery" target="_blank">Shipping & Delivery ↗</a></li>
+                        <li><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/about-us" target="_blank">About Us ↗</a></li>
+                        <li><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/our-mission" target="_blank">Our Mission ↗</a></li>
+                        <li><a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/pages/contact" target="_blank">Contact Us ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Working Hours</h4>
+                    <p>
+                        Monday – Friday<br>
+                        10:00 AM – 6:00 PM<br><br>
+                        Saturday<br>
+                        11:00 AM – 4:00 PM<br><br>
+                        Sunday<br>
+                        Closed
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>News & Updates</h4>
+                    <p>Discover new pieces, collections and inspiration for your home.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Email address">
+                        <button type="submit">→</button>
+                    </form>
+                    <p style="font-size: 0.75rem; margin-top: 1rem; color: rgba(255,255,255,0.4); font-style: italic;">A thoughtful note, from time to time.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 DECORE. Curated. Considered. Chosen for you.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank">Privacy</a>
+                    <a href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank">Terms</a>
+                    <a href="#home">Sitemap</a>
+                    <a href="#home">Back to top ↑</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Overlay
+        const menuIcon = document.getElementById('menu-icon');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const menuClose = document.getElementById('menu-close');
+        const overlayLinks = document.querySelectorAll('.overlay-link');
+
+        menuIcon.addEventListener('click', () => menuOverlay.classList.add('active'));
+        menuClose.addEventListener('click', () => menuOverlay.classList.remove('active'));
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => menuOverlay.classList.remove('active'));
+        });
+
+        // Search Overlay
+        const searchIcon = document.getElementById('search-icon');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchClose = document.getElementById('search-close');
+
+        searchIcon.addEventListener('click', () => searchOverlay.classList.add('active'));
+        searchClose.addEventListener('click', () => searchOverlay.classList.remove('active'));
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        // Edit Filters (Visual only)
+        const filterBtns = document.querySelectorAll('.edit-filters button');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
