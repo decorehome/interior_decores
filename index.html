@@ -771,6 +771,7 @@
   transform: translateX(0);
   transition: transform .25s ease, color .25s ease, font-style .2s ease;
 }
+.desktop-menu .menu-navigation .menu-link-name { white-space: nowrap !important; }
 .desktop-menu .menu-navigation .menu-link-number {
   align-self: center;
   padding: 0 !important;
@@ -1289,8 +1290,17 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-
 <div class="announcement">Welcome home. Discover DECORE.</div>
+<script id="remove-stray-brace-before-announcement">
+(()=>{
+  const announcement=document.querySelector('.announcement');
+  if(!announcement || !document.body) return;
+  for(const node of Array.from(document.body.childNodes)) {
+    if(node===announcement) break;
+    if(node.nodeType===Node.TEXT_NODE && node.textContent.trim()==='}') node.remove();
+  }
+})();
+</script>
 
 <header class="header" id="header">
   <div class="header-left"><span class="header-note">A CURATED HOME<br>FOR BEAUTIFUL LIVING</span></div>
@@ -1530,17 +1540,5 @@ document.getElementById('newsletter').addEventListener('submit',e=>{e.preventDef
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();searchOverlay.classList.remove('open');desktopMenu.classList.remove('open');panel.classList.remove('open');document.body.classList.remove('no-scroll')}});
 renderProducts();
 
-</script>
-
-<script id="remove-only-stray-brace">
-(function(){
-  function removeStrayBrace(){
-    document.body.childNodes.forEach(function(node){
-      if(node.nodeType===Node.TEXT_NODE && node.textContent.trim()==='}') node.remove();
-    });
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',removeStrayBrace);
-  else removeStrayBrace();
-})();
 </script>
 </body></html>
