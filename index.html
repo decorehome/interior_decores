@@ -491,7 +491,7 @@
 .desktop-menu .menu-navigation a{
   position:relative;
   display:grid;
-  grid-template-columns:24px minmax(0,1fr) 18px;
+  grid-template-columns:24px minmax(0,1fr);
   align-items:center;
   gap:11px;
   min-width:0;
@@ -601,7 +601,7 @@
   .menu-intro-monogram{font-size:30px}
   .desktop-menu .menu-shop{margin-top:15px}
   .desktop-menu .menu-navigation{grid-template-columns:1fr;gap:0}
-  .desktop-menu .menu-navigation a{min-height:54px;font-size:24px;grid-template-columns:23px minmax(0,1fr) 18px}
+  .desktop-menu .menu-navigation a{min-height:54px;font-size:24px;grid-template-columns:23px minmax(0,1fr)}
   .desktop-menu .menu-link-arrow{opacity:.7;transform:none}
   .desktop-menu .panel-close{top:15px;right:17px;width:35px;height:35px}
 }
@@ -636,10 +636,7 @@
   transition:color .2s ease,padding .2s ease;
 }
 .mobile-panel a:not(.panel-shop)::after{
-  content:"↗";
-  color:#A99B8C;
-  font-family:var(--sans);
-  font-size:13px;
+  content:none;
 }
 .mobile-panel a:not(.panel-shop):hover{color:#687B61;padding-left:5px}
 .mobile-panel .panel-shop{
@@ -1550,13 +1547,13 @@
       <a class="menu-shop" href="https://mishel-harutyunyan-p0w2g0uq.myshopify.com/" target="_blank" rel="noopener">Visit the full DECORE shop <span aria-hidden="true">↗</span></a>
     </aside>
     <nav class="menu-navigation" aria-label="Explore DECORE">
-      <a href="#home"><span class="menu-link-name">Home</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#idea"><span class="menu-link-name">The Idea</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#brands"><span class="menu-link-name">Brands</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#collections"><span class="menu-link-name">Collections</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#edit"><span class="menu-link-name">The Edit</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#about"><span class="menu-link-name">About</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
-      <a href="#inspiration"><span class="menu-link-name">Inspiration</span><span class="menu-link-arrow" aria-hidden="true">↗</span></a>
+      <a href="#home"><span class="menu-link-name">Home</span></a>
+      <a href="#idea"><span class="menu-link-name">The Idea</span></a>
+      <a href="#brands"><span class="menu-link-name">Brands</span></a>
+      <a href="#collections"><span class="menu-link-name">Collections</span></a>
+      <a href="#edit"><span class="menu-link-name">The Edit</span></a>
+      <a href="#about"><span class="menu-link-name">About</span></a>
+      <a href="#inspiration"><span class="menu-link-name">Inspiration</span></a>
     </nav>
   </div>
 </div>
